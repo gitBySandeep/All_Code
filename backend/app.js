@@ -27,4 +27,4 @@ app.use('/homeremedy', HomeRemedyRouter);
 app.use('/yoga', YogaRouter);
 app.use('/cart', CartRouter);
 app.use('/order', OrderRouter);
-app.listen(3000, () => { console.log("server started.....") })
+app.listen(3005, () => { console.log("server started.....") })
