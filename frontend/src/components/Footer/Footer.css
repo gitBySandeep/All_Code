@@ -1,14 +1,136 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
 .footer {
     border: 1px solid #000;
     height: 300px;
-    width: 99vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.footer-contain {
-    border: 1px solid #000;
+.footer-inner {
+    border: 1px solid #ff0000;
     height: 90%;
-    width: 92%
+    width: 92%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-top {
+    border: 1px solid #00ff00;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-customersupport {
+    border: 1px solid #00ff00;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-aboutus {
+    border: 1px solid #00ff00;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-account {
+    border: 1px solid #00ff00;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-privacypolicy {
+    border: 1px solid #00ff00;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-privacypolicy-top {
+    border: 1px solid #ff0000;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-privacypolicy-icons {
+    border: 1px solid #4400ff;
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-1-icon {
+    border: 1px solid #4400ff;
+    height: 90%;
+    width: 20%;
+}
+
+.footer-2-icon {
+    border: 1px solid #4400ff;
+    height: 90%;
+    width: 20%;
+}
+
+.footer-3-icon {
+    border: 1px solid #4400ff;
+    height: 90%;
+    width: 20%;
+}
+
+.footer-4-icon {
+    border: 1px solid #4400ff;
+    height: 90%;
+    width: 20%;
+}
+
+.footer-values {
+    padding: 0 2%;
+}
+
+.footer-bottom {
+    border: 1px solid #2600ff;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    border: 1px solid #73ff00;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-text {
+    border: 1px solid #ff00bb;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
