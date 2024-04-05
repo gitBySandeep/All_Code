@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 import UserLogIn from './components/User/LogIn.js';
 import UserForgetPassword from './components/User/ForgetPassword.js';
 function App() {

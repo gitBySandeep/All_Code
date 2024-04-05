@@ -72,7 +72,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0 30px;
     height: 100%;
 }
 
@@ -145,6 +145,7 @@
     width: 40px;
     height: 40px;
     transition: all 0.5s;
+    color: #000;
 }
 
 .social-icons a:hover {
@@ -250,9 +251,8 @@
     margin-top: 16px !important;
 }
 
-h1{
+h1 {
     font-weight: bold;
     margin: 0;
     padding: 0;
-    font-size: larger;
 }
