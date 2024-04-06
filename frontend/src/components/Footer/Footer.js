@@ -2,34 +2,34 @@ import "./Footer.css";
 
 const Footer = () => {
     return (
-        <div className="footer " style={{ backgroundColor: "#35754A", color: "white" }}>
+        <div className="footer border" style={{ backgroundColor: "var(--green)", color: "var(--white)", width: "99vw" }}>
             <div className="footer-inner m-2">
                 <div className="footer-top d-flex justify-content-between flex-wrap">
                     <div className="footer-customersupport  d-flex flex-column p-3">
                         <h2>Customer Support</h2>
-                        <span className="footer-values fs-7">Contact Us</span>
-                        <span className="footer-values fs-7">FAQ</span>
-                        <span className="footer-values fs-7">Track Order</span>
-                        <span className="footer-values fs-7">Return & Exchange</span>
-                        <span className="footer-values fs-7">Shipping Location</span>
+                        <span className="footer-values fs-7 links ps-3">Contact Us</span>
+                        <span className="footer-values fs-7 links ps-3">FAQ</span>
+                        <span className="footer-values fs-7 links ps-3">Track Order</span>
+                        <span className="footer-values fs-7 links ps-3">Return & Exchange</span>
+                        <span className="footer-values fs-7 links ps-3">Shipping Location</span>
                     </div>
                     <div className="footer-aboutus  d-flex flex-column p-3">
                         <h2>About Us</h2>
-                        <span className="footer-values fs-7">Our Story</span>
-                        <span className="footer-values fs-7">Blogs</span>
-                        <span className="footer-values fs-7">Ingredients Index</span>
-                        <span className="footer-values fs-7">Hotel & Spa</span>
-                        <span className="footer-values fs-7">Media</span>
+                        <span className="footer-values fs-7 links ps-3">Our Story</span>
+                        <span className="footer-values fs-7 links ps-3">Blogs</span>
+                        <span className="footer-values fs-7 links ps-3">Ingredients Index</span>
+                        <span className="footer-values fs-7 links ps-3">Hotel & Spa</span>
+                        <span className="footer-values fs-7 links ps-3">Media</span>
                     </div>
                     <div className="footer-account  d-flex flex-column p-3">
                         <h2>Your Account</h2>
-                        <span className="footer-values fs-7">My Account</span>
+                        <span className="footer-values fs-7 links ps-3">My Account</span>
                     </div>
                     <div className="footer-privacypolicy ">
                         <div className="footer-privacypolicy-top  d-flex flex-column p-3">
                             <h2>Privacy and Terms</h2>
-                            <span className="footer-values fs-7">Privacy Policy</span>
-                            <span className="footer-values fs-7">Terms & Conditions</span>
+                            <span className="footer-values fs-7 links ps-3">Privacy Policy</span>
+                            <span className="footer-values fs-7 links ps-3">Terms & Conditions</span>
                         </div>
                         <div className="footer-privacypolicy-  d-flex justify-content-between flex-wrap social-icons">
                             <a href="#" className="icon"><i className="fab fa-google-plus-g"></i></a>

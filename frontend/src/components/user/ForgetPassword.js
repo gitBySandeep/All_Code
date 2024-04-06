@@ -80,7 +80,7 @@ export default function ForgetPassword() {
                             <small className='signin-input-message'>{input}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setemail2("email is required") : (!event.target.value.match(/^[^\s@]+@gmail\.com$/)) ? setemail2("Invalid Email.") : setemail2(""); setEmail(event.target.value); }} type="email" placeholder="Email" />
                             <small className='signin-input-message'>{email2}</small>
-                            <Link className="ml-3" to="/">→ Back ←</Link>
+                            <Link className="ml-3 links" to="/">→ Back ←</Link>
                             {(input == email2) ? <button onClick={forgetpassword}>Submmit</button> : <button onClick={() => { (name == "") ? setinput("name is required") : (email == "") ? setemail2("email is required") : setemail2(" ") }} style={{ background: "#6fa781" }}>Submmit</button>}
                         </form>
                     </div>

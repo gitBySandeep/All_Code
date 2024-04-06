@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -17,7 +18,7 @@ const Header = () => {
                     </div>
                     <div className="header-login">
                         <div className="login-icon"></div>
-                        <span className="login-text">Login</span>
+                        <span className="login-text"><Link style={{ color: "var(--green)", textDecoration: "none" }} to="/">LogIn</Link></span>
                     </div>
                     <div className="header-cart">
                         <div className="cart-icon"></div>
@@ -36,7 +37,7 @@ const Header = () => {
                 <span>Homeremedies</span>
                 <span>About Us</span>
                 <span>Doctor Consult</span>
-                <span>Contact</span>
+                <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/contact">Contact</Link></span>
             </div>
         </div>
     );

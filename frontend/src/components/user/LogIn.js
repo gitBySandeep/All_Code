@@ -100,7 +100,7 @@ export default function LogIn() {
                             <small className='signin-input-message'>{email2}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setpass("password is required") : setpass(""); setPassword(event.target.value); }} type="password" placeholder="Password" />
                             <small className='signin-input-message'>{pass}</small>
-                            <Link className="ml-3" to="/forgetpassword">→ Forget Your Password? ←</Link>
+                            <Link className="ml-3 links" to="/forgetpassword">→ Forget Your Password? ←</Link>
                             {(input == pass) ? <button onClick={signIn}>Sign In</button> : <button onClick={() => { (name == "") ? setinput("name is required") : (password == "") ? setpass("password is required") : setpass(" ") }} style={{ background: "#6fa781" }}>Sign In</button>}
                         </form>
                     </div>
