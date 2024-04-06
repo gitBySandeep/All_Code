@@ -159,6 +159,14 @@
     border: 1px solid #ffffff;
 }
 
+/* CHANGE COLOR OF ABOUTUS WHERE ADD INSIDE LINK TAG */
+Link{
+    text-decoration: none;
+    color: white;
+}
+
+/* =======================================================MEDIA-QUERY======================================================= */
+
 @media only screen and (max-width: 750px) {
     .header {
         height: 80px;
