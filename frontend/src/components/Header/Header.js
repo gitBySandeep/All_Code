@@ -3,7 +3,7 @@ import "./Header.css";
 
 const Header = () => {
     return (
-        <div className="header">
+        <div className="header mb-1">
             <div className="header-top">
                 <div className="header-logo">
                     <div className="logo"></div>
@@ -18,7 +18,19 @@ const Header = () => {
                     </div>
                     <div className="header-login">
                         <div className="login-icon"></div>
-                        <span className="login-text"><Link style={{ color: "var(--green)", textDecoration: "none" }} to="/">LogIn</Link></span>
+                        <span className="login-text">LogIn</span>
+                        <div className="login-hover d-flex align-items-end justify-content-center">
+                            <div className="hover-down d-flex align-items-center justify-content-evenly flex-column">
+                                <div className="hover-user d-flex pb-1 align-items-center w-75">
+                                    <div className="login-user"></div>
+                                    <span className="login-texth ms-2"><Link style={{ color: "var(--green)", textDecoration: "none" }} to="/user">User</Link></span>
+                                </div>
+                                <div className="hover-doctor d-flex pb-1 align-items-center w-75">
+                                    <div className="login-doctor"></div>
+                                    <span className="login-texth ms-2"><Link style={{ color: "var(--green)", textDecoration: "none" }} to="">Doctor</Link></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="header-cart">
                         <div className="cart-icon"></div>
@@ -30,7 +42,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="header-bottom">
-                <span>Home</span>
+                <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/">Home</Link></span>
                 <span>Disease</span>
                 <span>Products</span>
                 <span>Yoga</span>

@@ -80,24 +80,84 @@
 }
 
 .search-text {
-    color: white;
+    color: var(--white);
     background: transparent;
     font-size: 1.1vmax;
     font-weight: 600;
 }
 
-.header-search {
-    /* border: 1px solid black; */
-}
-
 .header-login {
-    /* border: 1px solid black; */
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
+    position: relative;
+}
 
+.login-hover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    transition: all 1s;
+    display: none !important;
+}
+
+.header-login:hover .login-hover {
+    position: absolute;
+    height: 400%;
+    width: 150%;
+    top: 0;
+    border-radius: 15px;
+    display: flex !important;
+    scale: 1.1;
+}
+
+.header-login:hover {
+    scale: 1.1;
+
+    .hover-down {
+        height: 67%;
+        width: 100%;
+        border-radius: 15px;
+        background: rgba(214, 214, 214, 0.9);
+    }
+
+    .hover-user {
+        border: solid var(--green);
+        border-width: 0 0 1px 0;
+    }
+    .login-texth {
+        font-size: small;
+    }
+
+    .hover-user:hover {
+        scale: 1.1;
+    }
+
+    .hover-doctor {
+        border: solid var(--green);
+        border-width: 0 0 1px 0;
+    }
+
+    .hover-doctor:hover {
+        scale: 1.1;
+    }
+
+    .login-user {
+        height: 30px;
+        width: 30px;
+        background: url("./images/icons8-user-64.png") 0%;
+        background-size: cover;
+    }
+
+    .login-doctor {
+        height: 30px;
+        width: 30px;
+        background: url("./images/icons8-doctor-100\ \(1\).png") 0%;
+        background-size: cover;
+    }
 }
 
 .login-icon {
@@ -113,13 +173,17 @@
     font-weight: 700;
 }
 
+
 .header-cart {
-    /* border: 1px solid black; */
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
+}
+
+.header-cart:hover {
+    scale: 1.1;
 }
 
 .cart-icon {

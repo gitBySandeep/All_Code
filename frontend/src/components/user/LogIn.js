@@ -90,10 +90,10 @@ export default function LogIn() {
                         <form onSubmit={handleSubmit}>
                             <h1 className='fs-2'>Sign In</h1>
                             <div className="social-icons">
-                                <a href="#" className="icon"><i className="fab fa-google-plus-g" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-facebook-f" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-github" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-linkedin-in" style={{ color: "black" }}></i></a>
+                                <a href="#" className="icon border-dark"><i className="fab fa-google-plus-g" style={{ color: "black" }}></i></a>
+                                <a href="#" className="icon border-dark"><i className="fab fa-facebook-f" style={{ color: "black" }}></i></a>
+                                <a href="#" className="icon border-dark"><i className="fab fa-github" style={{ color: "black" }}></i></a>
+                                <a href="#" className="icon border-dark"><i className="fab fa-linkedin-in" style={{ color: "black" }}></i></a>
                             </div>
                             <span>or use your email password</span>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setemail2("email is required") : (!event.target.value.match(/^[^\s@]+@gmail\.com$/)) ? setemail2("Invalid Email.") : setemail2(""); setEmail(event.target.value); }} type="email" placeholder="Email" />
