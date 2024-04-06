@@ -64,7 +64,7 @@
     height: 100%;
     width: 20%;
     border-radius: 50px;
-    background-color: #35754A;
+    background-color: var(--green);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +109,7 @@
 }
 
 .login-text {
-    color: #35754A;
+    color: var(--green);
     font-weight: 700;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .cart-text {
-    color: #35754A;
+    color: var(--green);
     font-weight: 700;
 }
 
@@ -142,8 +142,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #35754A;
-    color: white;
+    background-color: var(--green);
+    color: var(--white);
     font-weight: 600;
 }
 
@@ -156,7 +156,7 @@
 
 .header-bottom span:hover {
     scale: 1.2;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--white);
 }
 
 @media only screen and (max-width: 750px) {
