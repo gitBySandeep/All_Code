@@ -148,18 +148,15 @@
 }
 
 .header-bottom span {
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    /* box-shadow: 0 0px 2px rgb(255, 255, 255); */
-}
-
-.header-bottom span:hover {
     padding: 5px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: large;
-    text-shadow: 0 0px 5px rgb(0, 0, 0);
+    transition: all 0.5s;
+}
+
+.header-bottom span:hover {
+    scale: 1.2;
+    border: 1px solid #ffffff;
 }
 
 @media only screen and (max-width: 750px) {
