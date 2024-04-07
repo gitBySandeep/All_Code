@@ -1,0 +1,35 @@
+.home {
+    width: 99vw;
+}
+
+.Home-image {
+    height: 46vw;
+    width: 100%;
+    /* border: 1px solid rgb(255, 0, 0); */
+    background: url("./images/ayurveda-img.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.remede-box {
+    width: 350px;
+    box-shadow: 0 0 5px;
+    /* border: 1px solid rgb(255, 0, 0); */
+}
+
+.remede-img {
+    height: 170px;
+    width: 98%;
+    background: url("./images/ayurveda-img.jpg") no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.remede-arrow {
+    height: 70px;
+    width: 70px;
+    /* position: absolute;
+    left: calc(100% - 90px); */
+    background: url("./images/icons8-arrow-sign-100.png") no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+}
