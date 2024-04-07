@@ -69,7 +69,7 @@ export default function ForgetPassword() {
                             <small className='signin-input-message'>{pass}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setpass2("password is required") : (!event.target.value.match(/^(?=.*\d)/)) ? setpass2("Password must contain at least one digit.") : (!event.target.value.match(/^(?=.*[a-zA-Z])/)) ? setpass2("Password must contain at least one letter.") : (!event.target.value.match(/^.{5,}$/)) ? setpass2("Password must be at least 5 characters long.") : setpass2(""); setPassword2(event.target.value); }} type="password" placeholder="Verify Password" />
                             <small className='signin-input-message'>{pass2}</small>
-                            {(pass == pass2 && password === password2) ? <Link to="/" onClick={() => { (password === password2) ? setnewpassword() : toast.error("Password must be same...") }}><button>Reset</button></Link> : <button onClick={() => { (password == "") ? setpass("enter new password") : setpass2("enter verify password") }} style={{ background: "#6fa781" }}>Reset</button>}
+                            {(pass == pass2 && password === password2) ? <Link to="/" onClick={() => { (password === password2) ? setnewpassword() : toast.error("Password must be same...") }}><button>Reset</button></Link> : <button onClick={() => { (password == "") ? setpass("enter new password") : setpass2("enter verify password") }} style={{ background: "var(--green-3)" }}>Reset</button>}
                         </form>
                     </div>
                     <div className="form-container sign-in">
@@ -80,8 +80,8 @@ export default function ForgetPassword() {
                             <small className='signin-input-message'>{input}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setemail2("email is required") : (!event.target.value.match(/^[^\s@]+@gmail\.com$/)) ? setemail2("Invalid Email.") : setemail2(""); setEmail(event.target.value); }} type="email" placeholder="Email" />
                             <small className='signin-input-message'>{email2}</small>
-                            <Link className="ml-3 links" to="/">→ Back ←</Link>
-                            {(input == email2) ? <button onClick={forgetpassword}>Submmit</button> : <button onClick={() => { (name == "") ? setinput("name is required") : (email == "") ? setemail2("email is required") : setemail2(" ") }} style={{ background: "#6fa781" }}>Submmit</button>}
+                            <Link className="ml-3 links" to="/user">→ Back ←</Link>
+                            {(input == email2) ? <button onClick={forgetpassword}>Submmit</button> : <button onClick={() => { (name == "") ? setinput("name is required") : (email == "") ? setemail2("email is required") : setemail2(" ") }} style={{ background: "var(--green-3)" }}>Submmit</button>}
                         </form>
                     </div>
                     <div className="toggle-container">

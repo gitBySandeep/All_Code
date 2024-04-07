@@ -1,6 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
   font-family: sans-serif !important;
+}
+
+:root {
+  --green: #35754A;
+  --green-2: #45905e;
+  --green-3: #6fa781;
+  --orange: #ff0000;
+  --orange: #D96D1E;
+  --white: #ffffff;
+  --white-2: #e0e0e0;
+  --gray: #b9b9b9;
+  --black-2: #292929;
+  --black: #000000;
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons div {
+  border: 1px solid var(--gray);
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s;
+}
+
+.social-icons div:hover {
+  scale: 1.3;
+  border: 1px solid var(--black);
+}
+
+.icon-google {
+  height: 100%;
+  width: 100%;
+  background: url("../public/images/icons8-google-plus-100.png") no-repeat center;
+  background-size: 90%;
+  cursor: pointer;
+}
+
+.icon-facebook {
+  height: 100%;
+  width: 100%;
+  background: url("../public/images/icons8-facebook-50.png") no-repeat center;
+  background-size: 70%;
+  cursor: pointer;
+}
+
+.icon-git {
+  height: 100%;
+  width: 100%;
+  background: url("../public/images/icons8-github-50.png") no-repeat center;
+  background-size: 110%;
+  cursor: pointer;
+}
+
+.icon-linkedin {
+  height: 100%;
+  width: 100%;
+  background: url("../public/images/icons8-linkedin-50.png") no-repeat center;
+  background-size: 70%;
+  cursor: pointer;
 }
 
 .main {
@@ -14,25 +82,46 @@
 .signin-form {
   width: 40%;
   padding: 10px;
-  box-shadow: 10px 10px 10px rgb(127, 127, 127);
-}
-
-:root {
-  --green: #35754A;
-  --white: #ffffff;
-  --black: #000000;
+  box-shadow: 10px 10px 10px var(--gray);
 }
 
 .btnn {
+  border: 2px solid var(--green) !important;
+  padding: 12px 20px;
+  width: 150px;
   background-color: var(--green);
   border: var(--green);
   border-radius: 10px;
-  font-weight: bold;
+  font-weight: bolder !important;
 }
 
 .btnn:hover {
+  padding: 11px 20px;
   background-color: var(--white);
-  border: 1px solid var(--green) !important;
+  border: 2px solid var(--green) !important;
   color: var(--green) !important;
-  scale: 1.1;
+  scale: 1.05;
+}
+
+.addtocart-btn {
+  background-color: var(--white);
+  border: 2px solid var(--green) !important;
+  color: var(--green) !important;
+}
+
+.buynow-btn {
+  background-color: var(--orange);
+  border: 2px solid var(--orange);
+}
+
+.buynow-btn:hover {
+  color: var(--orange) !important;
+  border: 2px solid var(--orange) !important;
+}
+
+.product-reting {
+  height: 30px;
+  width: 30px;
+  background: url("../public/images/icons8-star-96.png") no-repeat center;
+  background-size: cover;
 }

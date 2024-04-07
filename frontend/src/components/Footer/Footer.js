@@ -31,11 +31,11 @@ const Footer = () => {
                             <span className="footer-values fs-7 links ps-3">Privacy Policy</span>
                             <span className="footer-values fs-7 links ps-3">Terms & Conditions</span>
                         </div>
-                        <div className="footer-privacypolicy-  d-flex justify-content-between flex-wrap social-icons">
-                            <a href="#" className="icon"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#" className="icon"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="icon"><i className="fab fa-github"></i></a>
-                            <a href="#" className="icon"><i className="fab fa-linkedin-in"></i></a>
+                        <div className="footer-privacypolicy d-flex justify-content-evenly flex-wrap social-icons">
+                            <div style={{ filter: "invert(98%) sepia(57%) saturate(10%) hue-rotate(227deg) brightness(104%) contrast(102%)" }} className="border-dark icon-google"></div>
+                            <div style={{ filter: "invert(98%) sepia(57%) saturate(10%) hue-rotate(227deg) brightness(104%) contrast(102%)" }} className="border-dark icon-facebook"></div>
+                            <div style={{ filter: "invert(98%) sepia(57%) saturate(10%) hue-rotate(227deg) brightness(104%) contrast(102%)" }} className="border-dark icon-git"></div>
+                            <div style={{ filter: "invert(98%) sepia(57%) saturate(10%) hue-rotate(227deg) brightness(104%) contrast(102%)" }} className="border-dark icon-linkedin"></div>
                         </div>
                     </div>
                 </div>
