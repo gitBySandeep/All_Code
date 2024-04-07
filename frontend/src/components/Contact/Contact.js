@@ -91,11 +91,9 @@ const Contact = () => {
                                                 <textarea className="form-control form-control-sm custom-input mb-5" id="message" name="message" rows="4" value={formData.message} onChange={handleChange} required></textarea>
                                             </div>
                                         </div>
-
                                     </div>
                                     <button type="submit" className="btn btn-primary custom-button mb-3">Send Query</button>
                                 </div>
-
                             </form>
                             {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
                             {failureMessage && <div style={{ color: 'red' }}>{failureMessage}</div>}
@@ -111,7 +109,6 @@ const Contact = () => {
                                         <div className="support"></div>
                                     </div>
                                     <div className='col-md-8 mt-4'>
-
                                         <p>+91 9109817209 , +91 7489896419, +91  8827142011</p>
                                     </div>
                                     <div className='row'>
@@ -119,9 +116,7 @@ const Contact = () => {
                                         <p >OUR ADDRESS<br></br>
                                             Old Rajmohalla, Raj Mohalla South, Raj Mohalla, Indore, Madhya Pradesh 452002</p>
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
