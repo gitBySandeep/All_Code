@@ -87,8 +87,8 @@
 
 .btnn {
   border: 2px solid var(--green) !important;
-  padding: 12px 20px;
-  width: 150px;
+  padding: 7px 20px;
+  width: 130px;
   background-color: var(--green);
   border: var(--green);
   border-radius: 10px;
@@ -96,20 +96,22 @@
 }
 
 .btnn:hover {
-  padding: 11px 20px;
   background-color: var(--white);
-  border: 2px solid var(--green) !important;
   color: var(--green) !important;
-  scale: 1.05;
+  scale: 1.01;
 }
 
 .addtocart-btn {
+  padding: 7px 20px !important;
+  width: 135px !important;
   background-color: var(--white);
   border: 2px solid var(--green) !important;
   color: var(--green) !important;
 }
 
 .buynow-btn {
+  padding: 7px 20px !important;
+  width: 135px !important;
   border: 2px solid var(--orange) !important;
   background-color: var(--orange);
   border: 2px solid var(--orange);
