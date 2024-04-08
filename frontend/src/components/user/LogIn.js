@@ -69,10 +69,10 @@ export default function LogIn() {
                         <form onSubmit={handleSubmit}>
                             <h1 className='fs-2'>Create Account</h1>
                             <div className="social-icons">
-                                <a href="#" className="icon"><i className="fab fa-google-plus-g" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-facebook-f" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-github" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-linkedin-in" style={{ color: "black" }}></i></a>
+                                <div className="ms-2 me-2 icon-google"></div>
+                                <div className="ms-2 me-2 icon-facebook"></div>
+                                <div className="ms-2 me-2 icon-git"></div>
+                                <div className="ms-2 me-2 icon-linkedin"></div>
                             </div>
                             <span>or use your email for registration</span>
                             <input className='signin-input' onChange={(event) => { (event.target.value == "") ? setinput2("name is required") : (!event.target.value.match("^[a-z A-Z]+$")) ? setinput2("name contains only charecters") : (!event.target.value.match("^[a-z A-Z]{2,20}$")) ? setinput2("name must be at least 2 characters long.") : setinput2(""); setname(event.target.value); }} type="text" placeholder="User Name" />
@@ -83,25 +83,25 @@ export default function LogIn() {
                             <small className='signin-input-message'>{pass2}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setnumber2("number is required") : (!event.target.value.match(/^[0-9]+$/)) ? setnumber2("Number must contain only digits.") : (!event.target.value.match(/^\d{10}$/)) ? setnumber2("Number must only 10 digits.") : setnumber2(""); setcontactNumber(event.target.value); }} type="number" placeholder="Number" />
                             <small className='signin-input-message'>{number2}</small>
-                            {(input2 == pass2 && pass2 == email2 && email2 == number2) ? <button onClick={signUp}>Sign Up</button> : <button onClick={() => { (name == "") ? setinput2("name is required") : (email == "") ? setemail2("email is required") : (password == "") ? setpass2("password is required") : (contactNumber == "") ? setnumber2("number is required") : setpass2(" ") }} style={{ background: "#6fa781" }}>Sign Up</button>}
+                            {(input2 == pass2 && pass2 == email2 && email2 == number2) ? <button onClick={signUp}>Sign Up</button> : <button onClick={() => { (name == "") ? setinput2("name is required") : (email == "") ? setemail2("email is required") : (password == "") ? setpass2("password is required") : (contactNumber == "") ? setnumber2("number is required") : setpass2(" ") }} style={{ background: "var(--green-3)" }}>Sign Up</button>}
                         </form>
                     </div>
                     <div className="form-container sign-in">
                         <form onSubmit={handleSubmit}>
                             <h1 className='fs-2'>Sign In</h1>
                             <div className="social-icons">
-                                <a href="#" className="icon"><i className="fab fa-google-plus-g" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-facebook-f" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-github" style={{ color: "black" }}></i></a>
-                                <a href="#" className="icon"><i className="fab fa-linkedin-in" style={{ color: "black" }}></i></a>
+                                <div className="ms-2 me-2 icon-google"></div>
+                                <div className="ms-2 me-2 icon-facebook"></div>
+                                <div className="ms-2 me-2 icon-git"></div>
+                                <div className="ms-2 me-2 icon-linkedin"></div>
                             </div>
                             <span>or use your email password</span>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setemail2("email is required") : (!event.target.value.match(/^[^\s@]+@gmail\.com$/)) ? setemail2("Invalid Email.") : setemail2(""); setEmail(event.target.value); }} type="email" placeholder="Email" />
                             <small className='signin-input-message'>{email2}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value == "") ? setpass("password is required") : setpass(""); setPassword(event.target.value); }} type="password" placeholder="Password" />
                             <small className='signin-input-message'>{pass}</small>
-                            <Link className="ml-3" to="/forgetpassword">→ Forget Your Password? ←</Link>
-                            {(input == pass) ? <button onClick={signIn}>Sign In</button> : <button onClick={() => { (name == "") ? setinput("name is required") : (password == "") ? setpass("password is required") : setpass(" ") }} style={{ background: "#6fa781" }}>Sign In</button>}
+                            <Link className="ml-3 links" to="/forgetpassword">→ Forget Your Password? ←</Link>
+                            {(input == pass) ? <button onClick={signIn}>Sign In</button> : <button onClick={() => { (name == "") ? setinput("name is required") : (password == "") ? setpass("password is required") : setpass(" ") }} style={{ background: "var(--green-3)" }}>Sign In</button>}
                         </form>
                     </div>
                     <div className="toggle-container">
