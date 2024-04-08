@@ -6,6 +6,7 @@ import UserLogIn from "./components/User/LogIn.js";
 import Contact from "./components/Contact/Contact.js";
 import Home from "./components/Home/Home.js";
 import Homeremedy from "./components/Homeremedy/Homeremedy.js";
+import Yoga from "./components/Yoga/Yoga.js";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/homeremedy" element={<Homeremedy />} />
+        <Route path="/yoga" element={<Yoga />} />
         <Route path="/user" element={<UserLogIn />} />
         <Route path="/forgetpassword" element={<UserForgetPassword />} />
         <Route path="/contact" element={<Contact />} />
