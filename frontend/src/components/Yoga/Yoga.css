@@ -1,0 +1,19 @@
+#yoga_hover {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.youtube-icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+    text-align: center;
+    z-index: 1;
+    display: none;
+}
+
+#yoga_hover:hover >.youtube-icon{
+display: block;
+}
