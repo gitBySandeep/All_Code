@@ -11,16 +11,15 @@
 
 .remede-box {
     width: 350px;
+    height: 450px;
     box-shadow: 0 0 5px;
     display: inline-block;
     vertical-align: middle;
 }
 
 .remede-img {
-    height: 170px;
+    height: 200px;
     width: 98%;
-    background: url("./images/ayurveda-img.jpg") no-repeat center;
-    background-size: cover;
     cursor: pointer;
 }
 
@@ -37,7 +36,7 @@
 }
 
 .containerr-inline {
-    gap: 15vw;
+    gap: 1.5vw;
 }
 
 .containerr {
@@ -49,4 +48,17 @@
 
 .containerr::-webkit-scrollbar {
     display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .remede-box {
+        width: 300px;
+        height: 390px;
+    }
+    
+    .remede-img {
+        height: 170px;
+        width: 98%;
+        cursor: pointer;
+    }
 }

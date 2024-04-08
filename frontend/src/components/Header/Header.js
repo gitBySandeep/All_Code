@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Header = () => {
+  
   const [categoryList, setCategoryList] = useState([]);
   useEffect(() => {
     axios
