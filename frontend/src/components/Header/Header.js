@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+
+    const [categoryList, setCategoryList] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:3005/category/list")
+            .then(response => {
+                console.log(response);
+                setCategoryList(response.data.categories)
+            }).catch(err => {
+                console.log(err);
+            })
+    }, []);
+
     return (
         <div className="header mb-1">
             <div className="header-top">
@@ -46,7 +60,7 @@ const Header = () => {
                 <span>Disease</span>
                 <span>Products</span>
                 <span>Yoga</span>
-                <span>Homeremedies</span>
+                <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/homeremedy">Homeremedies</Link></span>
                 <span>About Us</span>
                 <span>Doctor Consult</span>
                 <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/contact">Contact</Link></span>

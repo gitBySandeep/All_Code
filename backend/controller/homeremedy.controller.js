@@ -28,10 +28,10 @@ export const saveInBulk = async (request, response, next) => {
         let HomeRemedyList = request.body;
 
         for (let homeremedy of HomeRemedyList) {
-            let { id, remedyName, description, ingredients, instructions, imageUrl, caution, categoryname } = homeremedy;
+            let {remedyName, description, ingredients, instructions, imageUrl, caution, categoryname } = homeremedy;
 
             await HomeRemedy.create({
-                id, remedyName, description, ingredients, instructions, imageUrl, caution, categoryname
+                remedyName, description, ingredients, instructions, imageUrl, caution, categoryname
             })
         }
         return response.status(200).json({ message: "All HomeRemedy Saved...." });
