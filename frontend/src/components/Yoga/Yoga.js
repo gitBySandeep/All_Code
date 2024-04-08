@@ -5,6 +5,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Yoga = () => {
+
+    window.alert("hello")
+
     const [yoga, setYoga] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:3005/yoga/yogalist")
