@@ -41,6 +41,7 @@ const Contact = () => {
             <div className="contact-img">
                 <div className="contact-img-main"></div>
             </div>
+            
 
 
             <div class="text-overlay">
@@ -91,16 +92,18 @@ const Contact = () => {
                                                 <textarea className="form-control form-control-sm custom-input mb-5" id="message" name="message" rows="4" value={formData.message} onChange={handleChange} required></textarea>
                                             </div>
                                         </div>
+
                                     </div>
                                     <button type="submit" className="btn btn-primary custom-button mb-3">Send Query</button>
                                 </div>
+
                             </form>
                             {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
                             {failureMessage && <div style={{ color: 'red' }}>{failureMessage}</div>}
                         </div>
                     </div>
-                    <div className='col-md-4 ms-5'>
-                        <h2>Make An Enquiry</h2>
+                    <div className='col-md-4 ms-1'>
+                        <h2>For Quick Enquiry</h2>
                         <p>We are happy to serve you at any time.....</p>
                         <div className='quick-enquiry'>
                             <div className='container'>
@@ -108,7 +111,8 @@ const Contact = () => {
                                     <div className='col-md-4 mt-4'>
                                         <div className="support"></div>
                                     </div>
-                                    <div className='col-md-8 mt-4'>
+                                    <div className='col-md-8 mt-4 contactNo'>
+
                                         <p>+91 9109817209 , +91 7489896419, +91  8827142011</p>
                                     </div>
                                     <div className='row'>
@@ -116,13 +120,17 @@ const Contact = () => {
                                         <p >OUR ADDRESS<br></br>
                                             Old Rajmohalla, Raj Mohalla South, Raj Mohalla, Indore, Madhya Pradesh 452002</p>
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
+        <br></br>
         <Footer />
     </>
 }
