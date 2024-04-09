@@ -66,7 +66,7 @@ export default function AboutUs() {
 
         <div className="row mt-3 mb-3">
           {/* first-box */}
-          <div className="col-md-4 col-12">
+          <div className="col-md-4 col-12 d-flex flex-column justify-content-center border border-dark">
             <div className="row mb-3">
               <div className="col-md-12 text-center mt-3 mb-3">
                 <i class="fa-solid fa-heart fa-2xl" id="about-icon-font-awesome"></i> <br></br>
@@ -78,11 +78,9 @@ export default function AboutUs() {
               treatment oils. We have got everything covered.We also have the
               best quality facial ubtans and face packs to suit every skin type.
               All of our products are made in small batches using handpicked and
-              carefully sourced ingredients. This ensures the quality of our
-              products. Our formulations speak for itself. Our Extra Virgin
+              carefully sourced ingredients.Our Extra Virgin
               Coconut Oil is extracted from freshcoconut milk without any
-              chemical processes, it is the purest form of coconut oil, water
-              white in color. Made using Centrifuge technology, Absolutely No
+              chemical processes, it is the purest form of coconut oil, Made using Centrifuge technology, Absolutely No
               Heat’ involved in the process making it India’s best VCO. Our
               Ayurvedic Thailams are made using authentic Ayurvedic reference
               texts and is manufactured in small batches which ensures quality.
@@ -90,7 +88,7 @@ export default function AboutUs() {
           </div>
 
           {/* second-box */}
-          <div className="col-md-4 col-12">
+          <div className="col-md-4 col-12  border border-danger">
             <div className="row mb-3">
               <div className="col-md-12 text-center  mt-3 mb-3">
               <i class="fa-solid fa-leaf fa-2xl" id="about-icon-font-awesome"></i> <br></br>
@@ -114,7 +112,7 @@ export default function AboutUs() {
           </div>
 
           {/* third-box */}
-          <div className="col-md-4 col-12">
+          <div className="col-md-4 col-12 border border-primary">
             <div className="row mb-3">
               <div className="col-md-12 text-center mt-3 mb-3">
               <i class="fa-solid fa-check fa-2xl" id="about-icon-font-awesome"></i> <br></br>
