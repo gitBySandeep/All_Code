@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import UserForgetPassword from "./components/User/ForgetPassword.js";
-import UserLogIn from "./components/User/LogIn.js";
+import UserForgetPassword from "./components/user/ForgetPassword.js";
+import UserLogIn from "./components/user/LogIn.js";
 import AboutUs from "./components/AboutUs/About.js";
 import Contact from "./components/Contact/Contact.js";
 import Home from "./components/Home/Home.js";
 import Homeremedy from "./components/Homeremedy/Homeremedy.js";
-import Yoga from "./components/Yoga/Yoga.js";
+import Yoga from "./components/Yoga/Yoga.js"
+import GetStart from "./components/Yoga/yogadescription.js";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/homeremedy" element={<Homeremedy />} />
-        <Route path="/yoga" element={<Yoga />} />
+        {/* <Route path="/yoga" element={<Yoga />} /> */}
+        <Route path='/yoga' element={<Yoga/>}/>
+        <Route path='/getstart' element= {<GetStart/>}/> 
         <Route path="/user" element={<UserLogIn />} />
         <Route path="/forgetpassword" element={<UserForgetPassword />} />
         <Route path="/aboutUs" element={<AboutUs/> } />
