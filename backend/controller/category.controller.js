@@ -9,7 +9,12 @@ export const save = (request, response, next) => {
     if (!errors.isEmpty())
         return response.status(401).json({ error: errors.array() });
 
-    Category.create({ categoryName: request.body.categoryName })
+    Category.create({
+        categoryName: request.body.categoryName,
+        Causes: request.body.Causes,
+        Precaution: request.body.Precaution,
+        imageUrl: request.body.imageUrl
+    })
         .then((result) => {
             return response.status(200).json({ data: result.dataValues, message: "category created..." });
         })
@@ -21,8 +26,11 @@ export const save = (request, response, next) => {
 export const saveInBulk = async (request, response, next) => {
     try {
         let categoryList = request.body;
-        for (let category of categoryList)
-            await Category.create({ categoryName: category });
+        for (let category of categoryList) {
+            let { categoryName, Causes, Precaution, imageUrl } = category;
+
+            await Category.create({ categoryName, Causes, Precaution, imageUrl });
+        }
         return response.status(200).json({ message: "All Category Saved.." });
     }
     catch (err) {

@@ -30,6 +30,10 @@ const Product = sequelize.define('product', {
         type: DataTypes.STRING(1000),
         allowNull: false
     },
+    rating: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
     categoryname: {
         type: DataTypes.STRING,
         allowNull: true,

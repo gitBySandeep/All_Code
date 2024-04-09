@@ -4,7 +4,12 @@ import { body } from "express-validator";
 
 const router = express.Router();
 
-router.post("/addCategory", body("categoryName", "invalid categoryName").notEmpty(), save);
+router.post("/addCategory",
+    body("categoryName", "invalid categoryName").notEmpty(),
+    body("Causes", "invalid Causes").notEmpty(),
+    body("Precaution", "invalid Precaution").notEmpty(),
+    body("imageUrl", "invalid imageUrl").notEmpty(),
+    save);
 
 router.post("/addinbulk", saveInBulk);
 
