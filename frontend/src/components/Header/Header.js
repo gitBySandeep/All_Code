@@ -50,8 +50,8 @@ const Header = () => {
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/product">Products</Link></span>
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/yoga">Yoga</Link></span>
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/homeremedy">Homeremedies</Link></span>
-                    <span><Link  style={{ color: "var(--white)", textDecoration: "none" }} to="/aboutUs">About Us</Link></span>
-                    <span>Doctor Consult</span>
+                    <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/aboutUs">About Us</Link></span>
+                    <span>Doctor</span>
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/contact">Contact</Link></span>
                 </div>
             </div>
