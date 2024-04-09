@@ -12,6 +12,7 @@ export const Add = (request, response, next) => {
         price: request.body.price,
         description: request.body.description,
         imageUrl: request.body.imageUrl,
+        rating: request.body.rating,
         categoryname: request.body.categoryname
     })
         .then((result) => {
@@ -28,10 +29,10 @@ export const saveInBulk = async (request, response, next) => {
         let productList = request.body;
 
         for (let product of productList) {
-            let { id, title, brand, price, description, imageUrl, categoryname } = product;
+            let { id, title, brand, price, description, imageUrl, rating, categoryname } = product;
 
             await Product.create({
-                id, title, brand, price, description, imageUrl, categoryname
+                id, title, brand, price, description, imageUrl, rating, categoryname
             })
         }
         return response.status(200).json({ message: "All Product Saved...." });
@@ -51,6 +52,7 @@ export const updateProduct = (request, response, next) => {
         price: request.body.price,
         description: request.body.description,
         imageUrl: request.body.imageUrl,
+        rating: request.body.rating,
         categoryname: request.body.categoryname
     }, { where: { id: request.body.id } })
         .then((result) => {

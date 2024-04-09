@@ -46,11 +46,11 @@ orderItem.sync().then(() => {
 });
 
 // order
-Order.hasMany(orderItem, { foreignKey: "orderId" });
-orderItem.belongsTo(Order, { foreignKey: "orderId" });
+// Order.hasMany(orderItem, { foreignKey: "orderId" });
+// orderItem.belongsTo(Order, { foreignKey: "orderId" });
 
-// product
-Order.hasMany(Product, { foreignKey: "productId" });
-Product.belongsTo(Order, { foreignKey: "productId" });
+// // product
+// Order.hasMany(Product, { foreignKey: "productId" });
+// Product.belongsTo(Order, { foreignKey: "productId" });
 
 export default orderItem;
