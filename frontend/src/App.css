@@ -107,6 +107,11 @@
   color: var(--green) !important;
 }
 
+.addtocart-btn:hover {
+  background-color: var(--green);
+  color: var(--white) !important;
+}
+
 .buynow-btn {
   border: 2px solid var(--orange) !important;
   background-color: var(--orange);
