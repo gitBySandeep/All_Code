@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Yoga from "../Yoga/Yoga.js";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"
 const Home = () => {
 
     const [homeremedies, setHomeremedies] = useState([]);
@@ -37,6 +37,12 @@ const Home = () => {
                 console.log(err);
             })
     }, []);
+
+    const navigate = useNavigate();
+    const getStart = (yogaa) => {
+        window.alert("hi")
+        navigate("/getstart", { state: yogaa});
+    }
 
     return (<>
         <Header />
@@ -100,7 +106,7 @@ const Home = () => {
                                     <div className="remede-value m-1 d-flex flex-column justify-content-evenly h-100 align-items-center">
                                         <span className="fs-5 fw-bold ms-2 me-2">{yogaa.yogaName.slice(0, 25)}</span>
                                         <span className="d-flex flex-wrap m-2">{yogaa.benefits.slice(0, 110)}</span>
-                                        <button className="btnn text-white m-2">Get Start</button>
+                                        <button className="btnn text-white m-2" onClick={() => getStart(yogaa)}>Get Start</button>
                                     </div>
                                 </div> : ""}
                             </div>)}
