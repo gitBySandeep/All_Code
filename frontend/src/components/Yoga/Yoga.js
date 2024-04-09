@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import "./Yoga.css"
+
 const Yoga = () => {
     const [yogalist, setYoga] = useState([]);
     useEffect(() => {
@@ -16,7 +17,7 @@ const Yoga = () => {
                 console.log(err);
             })
     }, []);
-
+                    
     const navigate = useNavigate();
     const getStart = (yoga) => {
         navigate("/getstart", { state: yoga });
