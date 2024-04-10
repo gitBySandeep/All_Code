@@ -1,15 +1,20 @@
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { FaHeart, FaLeaf } from "react-icons/fa";
+import { IoMdDoneAll } from "react-icons/io";
 import "./About.css";
 
 export default function AboutUs() {
   return (
     <>
       <Header />
-        {/* FIRST SECTION */}
-      <div className="container-fluid">
-      <div className="row">
-          <div className="col-12 mt-2" id="about_Image">
+
+      {/* ====================================================FIRST-SECTION======================================================= */}
+
+      {/* FIRST SECTION */}
+      {/* <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-10 mt-2" id="about_Image">
             <div id="about_Image_text">
               <h1 className="mb-3">Ayurveda</h1>
               <p>
@@ -21,11 +26,31 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-        {/* SECOND SECTION */}
-      <div className="container">
-      <div className="row d-flex align-items-center">
+      {/* FIRST SECTION */}
+      <div className="container-fluid position-relative about_Image">
+  <img
+    src="./images/ayurvedas1.jpg"
+    className="img-fluid about_Image"
+    alt="Ayurveda Image"
+  />
+  <div className="position-absolute top-50 start-50 translate-middle text-center Image_text" style={{color: "white"}}> {/* Center content */}
+    <h1 className="mb-2">Ayurveda</h1>
+    <p>
+      Ayurveda is an ancient Indian system of medicine that focuses on
+      natural remedies, diet, and lifestyle to promote health and prevent
+      illness. Ayurveda emphasizes the interconnectedness of body, mind, and
+      spirit.
+    </p>
+  </div>
+</div>
+
+      {/* ==================================================SECOND-SECTION======================================================= */}
+
+      {/* SECOND SECTION */}
+      <div className="container border broder-dark">
+        <div className="row d-flex align-items-center">
           <div classname="col-12">
             <div className="text-center mb-3 mt-3">
               <h1 className="border-bottom border-2 border-dark d-inline pb-1 ">
@@ -38,7 +63,14 @@ export default function AboutUs() {
 
         <div className="row d-flex align-items-center justify-content-center mt-3 mb-2">
           <div className="col-md-8 text-center col-12">
-            Ayurveda is an ancient system of medicine that originated in India over 5,000 years ago. Its name comes from the Sanskrit words "ayur," meaning life, and "veda," meaning knowledge or science. In simple terms, Ayurveda focuses on achieving balance and harmonyh within the body, mind, and spirit to maintain good health and prevent illness. It believes that each person is made up of a unique combination of elements known as doshas - Vata (air and space), Pitta (fire and water), and Kapha (earth and water)... 
+            Ayurveda is an ancient system of medicine that originated in India
+            over 5,000 years ago. Its name comes from the Sanskrit words "ayur,"
+            meaning life, and "veda," meaning knowledge or science. In simple
+            terms, Ayurveda focuses on achieving balance and harmonyh within the
+            body, mind, and spirit to maintain good health and prevent illness.
+            It believes that each person is made up of a unique combination of
+            elements known as doshas - Vata (air and space), Pitta (fire and
+            water), and Kapha (earth and water)...
           </div>
           <div
             className="col-md-4 col-12 mt-3 text-center"
@@ -52,10 +84,9 @@ export default function AboutUs() {
         </div>
       </div>
 
-        {/* ====================================================THIRD-SECTION======================================================= */}
+      {/* ====================================================THIRD-SECTION======================================================= */}
 
-       
-        <div className="container-fluid mt-3" id="about_third_section">
+      <div className="container-fluid mt-3" id="about_third_section">
         <div className="row">
           <div className="text-center mt-3 mb-2">
             <h1 className="border-bottom border-2 border-dark d-inline pb-1">
@@ -66,10 +97,11 @@ export default function AboutUs() {
 
         <div className="row mt-3 mb-3">
           {/* first-box */}
-          <div className="col-md-4 col-12 d-flex flex-column justify-content-center border border-dark">
+          <div className="col-md-4 col-12">
             <div className="row mb-3">
               <div className="col-md-12 text-center mt-3 mb-3">
-                <i class="fa-solid fa-heart fa-2xl" id="about-icon-font-awesome"></i> <br></br>
+                <FaHeart style={{ color: "rgb(86, 142, 86)" }} size={50} />
+                <br></br>
                 <spna className="mt-2 d-block">Promise of Ayurveda</spna>
               </div>
             </div>
@@ -78,20 +110,23 @@ export default function AboutUs() {
               treatment oils. We have got everything covered.We also have the
               best quality facial ubtans and face packs to suit every skin type.
               All of our products are made in small batches using handpicked and
-              carefully sourced ingredients.Our Extra Virgin
-              Coconut Oil is extracted from freshcoconut milk without any
-              chemical processes, it is the purest form of coconut oil, Made using Centrifuge technology, Absolutely No
-              Heat’ involved in the process making it India’s best VCO. Our
-              Ayurvedic Thailams are made using authentic Ayurvedic reference
-              texts and is manufactured in small batches which ensures quality.
+              carefully sourced ingredients. Our Extra Virgin Coconut Oil is
+              extracted from freshcoconut milk without any chemical processes,
+              it is the purest form of coconut oil, water white in color.
+              Absolutely No Heat’ involved in the process making it India’s best
+              VCO. Our Ayurvedic Thailams are made using authentic Ayurvedic
+              reference texts and is manufactured in small batches which ensures
+              quality. Manufactured within our facility located in Palakkad,
+              Kerala.
             </div>
           </div>
 
           {/* second-box */}
-          <div className="col-md-4 col-12  border border-danger">
+          <div className="col-md-4 col-12">
             <div className="row mb-3">
               <div className="col-md-12 text-center  mt-3 mb-3">
-              <i class="fa-solid fa-leaf fa-2xl" id="about-icon-font-awesome"></i> <br></br>
+                <FaLeaf style={{ color: "rgb(86, 142, 86)" }} size={50} />
+                <br></br>
                 <spna className="mt-2 d-block">Responsible Sourcing</spna>
               </div>
             </div>
@@ -112,10 +147,11 @@ export default function AboutUs() {
           </div>
 
           {/* third-box */}
-          <div className="col-md-4 col-12 border border-primary">
+          <div className="col-md-4 col-12">
             <div className="row mb-3">
               <div className="col-md-12 text-center mt-3 mb-3">
-              <i class="fa-solid fa-check fa-2xl" id="about-icon-font-awesome"></i> <br></br>
+                <IoMdDoneAll style={{ color: "rgb(86, 142, 86)" }} size={50} />
+                <br></br>
                 <spna className="mt-2 d-block">Promise of Ayurveda</spna>
               </div>
             </div>
@@ -135,7 +171,7 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
       <Footer />
     </>
   );
