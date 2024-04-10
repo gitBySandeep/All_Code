@@ -1,28 +1,6 @@
-/* #about_Image {
-    position: relative;
-    width: 100%;
-}
+/* {====================================================FIRST-SECTION=======================================================} */
 
-#about_Image img {
-    width: 100%;
-    height: auto;
-}
-
-.image_text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-} */
-
-
-#about_Image{
+/* #about_Image{
     width: 100vw;
     height: 100vh;
     background: url('../../../public/images/ayurvedas1.jpg');
@@ -45,23 +23,82 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+} */
+
+
+/* {====================================================FIRST-SECTION=======================================================} */
+.about_Image {
+    width: 100vw;
 }
 
-#history_right-image > img{
+.Image_text {
+    font-size: 10px;
+}
+
+/* media */
+
+@media (300px <=width <=500px) {
+    .Image_text>h1 {
+        font-size: 1.5rem;
+    }
+
+    .Image_text{
+        padding-top: 30px;
+    }
+
+    .about_Image{
+        margin-top: 25px;
+    }
+
+    .Image_text>p {
+        font-size: .4rem;
+    }
+
+}
+
+@media (500px <=width <=760px) {
+    .Image_text>h1 {
+        font-size: 2.2rem;
+    }
+
+    .about_Image{
+        margin-top: 25px;
+    }
+
+
+    .Image_text>p {
+        font-size: .8rem;
+    }
+
+}
+
+@media (760px <=width <=1600px) {
+    .Image_text>h1 {
+        font-size: 2.6rem;
+    }
+
+    .Image_text>p {
+        font-size: 1.3rem;
+    }
+
+}
+
+
+
+#history_right-image>img {
     border-radius: 50%;
 }
 
 
-#about-icon-font-awesome{
-    color: rgb(73, 114, 73);
+#about-icon-font-awesome {
+    color: rgb(86, 142, 86);
 }
 
-#about_third_section{
+#about_third_section {
     background-color: rgba(171, 177, 183, 0.64);
 }
 
-#history_box{
+#history_box {
     background-color: rgba(171, 177, 183, 0.64);
 }
 

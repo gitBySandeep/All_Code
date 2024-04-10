@@ -18,7 +18,7 @@ const Yoga = () => {
                 console.log(err);
             })
     }, []);
-
+                    
     const navigate = useNavigate();
     const getStart = (yoga) => {
         navigate("/getstart", { state: yoga });
