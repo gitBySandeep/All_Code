@@ -6,9 +6,9 @@ import ReactPLayer from 'react-player/youtube';
 export default function GetStart() {
     const navigate = useNavigate();
     const { state } = useLocation();
-    console.log("hi");
     console.log(state);
     const back = () => {
+        navigate("/");
         navigate("/yoga")
     }
 
@@ -26,7 +26,7 @@ export default function GetStart() {
                         <h4 className="mt-2 fs-4 " style={{ fontSize: "14px" }}>{state.benefits}</h4>
                         <h4 className="mt-2 font-weight-bold" style={{ color: "#35754A" }}>Instructions of {state.yogaName}</h4>
                         <h4 className="mt-2 " style={{ fontSize: "18px" }}>{state.instructions}</h4>
-                        <button style={{ cursor: "pointer", background: "#35754A", height: "30px", width: "120px" }} className="mt-3 text-white rounded" onClick={back}>Back home</button>
+                        <button style={{ cursor: "pointer", background: "#35754A", height: "30px", width: "120px" }} className="mt-3 text-white rounded" onClick={back}>Back</button>
                     </div>
                 </div>
             </div>
