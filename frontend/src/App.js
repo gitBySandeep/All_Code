@@ -9,7 +9,7 @@ import Home from "./components/Home/Home.js";
 import Homeremedy from "./components/Homeremedy/Homeremedy.js";
 import Yoga from "./components/Yoga/Yoga.js";
 import Product from "./components/Product/Product.js";
-import GetStart from "./components/Yoga/yogadescription.js";
+import GetStart from "./components/Yoga/Yogadescription.js";
 import Disease from "./components/Disease/Disease.js";
 import ViewMore from "./components/Homeremedy/HomeremedyDescription.js";
 
@@ -22,7 +22,7 @@ function App() {
           <Route path="/homeremedy" element={<Homeremedy />} />
           <Route path='/ViewMore' element= {<ViewMore/>}/>
           <Route path="/yoga" element={<Yoga />} />
-          <Route path='/getstart' element= {<GetStart/>}/> 
+          <Route path='/getstart' element={<GetStart />} />
           <Route path="/product" element={<Product />} />
           <Route path="/disease" element={<Disease />} />
           <Route path="/product" element={<Product />} />

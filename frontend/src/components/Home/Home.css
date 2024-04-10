@@ -14,7 +14,7 @@
     margin-right: 4vw;
     width: 350px;
     /* height: 400px; */
-    box-shadow: 5px 5px 15px ;
+    box-shadow: 5px 5px 15px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -24,6 +24,7 @@
     width: 98%;
     cursor: pointer;
 }
+
 .remede-img:hover {
     scale: 1.02;
 }
@@ -66,4 +67,25 @@
         width: 98%;
         cursor: pointer;
     }
+}
+
+#yoga_hover {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.youtube-icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+    text-align: center;
+    z-index: 1;
+    display: none;
+    color: var(--white);
+}
+
+#yoga_hover:hover>.youtube-icon {
+    display: block;
 }
