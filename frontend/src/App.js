@@ -11,7 +11,7 @@ import Yoga from "./components/Yoga/Yoga.js";
 import Product from "./components/Product/Product.js";
 import GetStart from "./components/Yoga/Yogadescription.js";
 import Disease from "./components/Disease/Disease.js";
-// import ViewMore from "./components/Homeremedy/HaomeremedyDescription.js";
+import ViewMore from "./components/Homeremedy/HomeremedyDescription.js";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homeremedy" element={<Homeremedy />} />
-          {/* <Route path="/viewmore" element={<ViewMore />} /> */}
+          <Route path='/ViewMore' element= {<ViewMore/>}/>
           <Route path="/yoga" element={<Yoga />} />
           <Route path='/getstart' element={<GetStart />} />
           <Route path="/product" element={<Product />} />

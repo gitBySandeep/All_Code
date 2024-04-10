@@ -8,6 +8,7 @@ export default function GetStart() {
     const navigate = useNavigate();
     const { state } = useLocation();
     const back = () => {
+        navigate("/");
         navigate("/yoga")
     }
 
