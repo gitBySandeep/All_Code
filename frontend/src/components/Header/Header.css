@@ -233,8 +233,12 @@ Link {
 
 @media only screen and (max-width: 750px) {
     .header {
-        height: 80px;
+        height: 60px;
         box-shadow: 0px 0px 5px;
+    }
+
+    .header-contain {
+        height: 60px;
     }
 
     .header-top {
@@ -243,7 +247,7 @@ Link {
 
     .logo {
         height: 100%;
-        width: 20vmax;
+        width: 16vmax;
     }
 
     .header-content {
@@ -271,8 +275,8 @@ Link {
     }
 
     .manu-icon {
-        height: 45px;
-        width: 45px;
+        height: 20px;
+        width: 20px;
         background: url("./images/icons8-menu-500.png") 0%;
         background-size: cover;
     }
@@ -280,4 +284,38 @@ Link {
     .header-bottom {
         display: none;
     }
+}
+
+.disease {
+    position: relative;
+}
+
+.disease-hover {
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 100%;
+    background: transparent;
+    display: none;
+}
+
+.disease:hover .disease-hover {
+    display: flex;
+}
+
+.d-hover {
+    border: 2px solid rgb(255, 255, 255);
+    position: absolute;
+    top: calc(100% - 450px);
+    left: -100%;
+    width: 60vmax;
+    background: rgba(235, 235, 235, 0.9);
+    
+    font-size: 1vmax;
+}
+
+.d-hover-values:hover {
+    scale: 1.1 !important;
 }

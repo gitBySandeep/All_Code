@@ -4,6 +4,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Header = () => {
+
+    const [diseases, setDiseases] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:3005/category/list")
+            .then(response => {
+                console.log(response.data.categories);
+                setDiseases(response.data.categories)
+            }).catch(err => {
+                console.log(err);
+            })
+    }, []);
+
+
     return (
         <div className="header mb-1">
             <div className="header-contain">
@@ -46,7 +59,15 @@ const Header = () => {
                 </div>
                 <div className="header-bottom">
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/">Home</Link></span>
-                    <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/disease">Disease</Link></span>
+                    <span className="disease">Disease
+                        <div className="disease-hover">
+                            <div className="d-hover d-flex flex-wrap align-items-center justify-content-between p-1">
+                                {diseases.map((disease, i) => <div key={i} className="d-flex flex-wrap">
+                                    <span className=" d-hover-values" style={{ color: "var(--green)", width: "14vmax" }}><Link style={{ color: "var(--green)", textDecoration: "none" }} to="/disease">{disease.categoryName}</Link></span>
+                                </div>)}
+                            </div>
+                        </div>
+                    </span>
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/product">Products</Link></span>
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/yoga">Yoga</Link></span>
                     <span><Link style={{ color: "var(--white)", textDecoration: "none" }} to="/homeremedy">Homeremedies</Link></span>
