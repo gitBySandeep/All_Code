@@ -51,4 +51,17 @@
         font-size: 10px;
 
     }
+
+    .footer-aboutus, .footer-customersupport, .footer-account, .footer-privacypolicy, .footer-privacypolicy-top {
+        padding: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .footer-privacypolicy {
+        display: flex;
+        margin-top: 3vw;
+        width: 100%;
+        align-items: center;
+    }
 }
