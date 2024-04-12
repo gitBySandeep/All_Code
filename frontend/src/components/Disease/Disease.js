@@ -26,7 +26,8 @@ const Disease = () => {
                             <div className="remede-img m-1"><img src={disease.imageUrl} style={{ height: "100%", width: '100%' }} /></div>
                             <div className="remede-value h-100 m-1 d-flex flex-column justify-content-evenly align-items-center text-center">
                                 <span className="fs-5 fw-bold ms-2 me-2">{disease.categoryName.slice(0, 25)}</span>
-                                <span className="d-flex flex-wrap m-2">{disease.description.slice(0, 100)}</span>
+                                <span className="d-flex flex-wrap m-2">{disease.Causes.slice(0, 100)}</span>
+                                <span className="d-flex flex-wrap m-2">{disease.Precaution.slice(0, 100)}</span>
                                 <button className="btnn text-white m-2">Solution</button>
                             </div>
                         </div>
