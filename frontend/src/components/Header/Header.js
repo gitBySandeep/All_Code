@@ -85,14 +85,14 @@ const Header = () => {
                                 <li class="nav-item"><Link className="nav-link" style={{ color: "var(--white)" }} to="/yoga">Yoga</Link></li>
                                 <li class="nav-item"><Link className="nav-link" style={{ color: "var(--white)" }} to="/homeremedy">Homeremedies</Link></li>
                                 <li class="nav-item"><Link className="nav-link" style={{ color: "var(--white)" }} to="/aboutUs">About Us</Link></li>
-                                <li class="nav-item"><Link className="nav-link" style={{ color: "var(--white)" }} to="/">Doctor</Link></li>
+                                <li class="nav-item"><Link className="nav-link" style={{ color: "var(--white)" }} to="/doctorconsult">Doctor</Link></li>
                                 <li class="nav-item"><Link className="nav-link" style={{ color: "var(--white)" }} to="/contact">Contact</Link></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
-            </div>
-        </div>
+             </div>
+           </div>
     );
 };
 
