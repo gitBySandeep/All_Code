@@ -11,6 +11,7 @@ import Yoga from "./components/Yoga/Yoga.js";
 import Product from "./components/Product/Product.js";
 import GetStart from "./components/Yoga/yogadescription.js";
 import Disease from "./components/Disease/Disease.js";
+import DoctorConsult from "./components/DoctorConsult/DoctorConsult.js";
 
 function App() {
   return (
@@ -28,10 +29,12 @@ function App() {
           <Route path="/forgetpassword" element={<UserForgetPassword />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/doctorconsult" element={<DoctorConsult/>}/>
         </Routes>
       </div>
     </div>
   );
 }
+
 
 export default App;
