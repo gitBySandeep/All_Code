@@ -8,12 +8,21 @@
     position: absolute;
     transform: translate(-50%, -50%);
     top: 30%;
+    height: 30px;
+    width: 50px;
+    border-radius: 7px;
+    background: var(--red);
     left: 50%;
     text-align: center;
     z-index: 1;
     display: none;
+    color: var(--white);
 }
 
-#yoga_hover:hover >.youtube-icon{
-display: block;
+.youtube-icon:hover {
+    scale: 1.1;
+}
+
+#yoga_hover:hover>.youtube-icon {
+    display: block;
 }

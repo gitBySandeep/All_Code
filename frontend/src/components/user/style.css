@@ -123,7 +123,7 @@
 .containe.active .sign-up {
     transform: translateX(100%);
     opacity: 1;
-    z-index: 5;
+    z-index: 3;
     animation: move 0.6s alternate;
 }
 
@@ -135,7 +135,7 @@
 
     50%, 100% {
         opacity: 1;
-        z-index: 5;
+        z-index: 3;
     }
 }
 
@@ -148,7 +148,7 @@
     overflow: hidden;
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
-    z-index: 1000;
+    z-index: 4;
 }
 
 .containe.active .toggle-container {

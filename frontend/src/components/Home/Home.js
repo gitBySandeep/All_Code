@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Yoga from "../Yoga/Yoga.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import { FaPlay } from "react-icons/fa";
 const Home = () => {
 
     const [homeremedies, setHomeremedies] = useState([]);
@@ -40,8 +41,11 @@ const Home = () => {
 
     const navigate = useNavigate();
     const getStart = (yogaa) => {
-        window.alert("hi")
-        navigate("/getstart", { state: yogaa});
+        navigate("/getstart", { state: yogaa });
+    }
+
+    const viewmore = (remedy) => {
+        navigate("/viewmore", { state: remedy });
     }
 
     return (<>
@@ -57,11 +61,11 @@ const Home = () => {
                         <div className="containerr-inline d-flex align-items-center mb-3">
                             {homeremedies.map((remedy, index) => <div key={index}>
                                 {index < 10 ? <div className="remede-box d-flex flex-column align-items-center justify-content-start">
-                                    <div className="remede-img m-1"><img src={remedy.imageUrl} style={{ height: "100%", width: '100%' }} /></div>
+                                    <div className="remede-img m-1"><img src={remedy.imageUrl} onClick={() => viewmore(remedy)} style={{ height: "100%", width: '100%' }} /></div>
                                     <div className="remede-value h-100 m-1 d-flex flex-column justify-content-evenly align-items-center">
                                         <span className="fs-5 fw-bold ms-2 me-2">{remedy.remedyName.slice(0, 25)}</span>
                                         <span className="d-flex flex-wrap m-2">{remedy.description.slice(0, 80)}</span>
-                                        <button className="btnn text-white m-2">View More</button>
+                                        <button onClick={() => viewmore(remedy)} className="btnn text-white m-2">View More</button>
                                     </div>
                                 </div> : ""}
                             </div>)}
@@ -103,6 +107,7 @@ const Home = () => {
                             {yoga.map((yogaa, index) => <div key={index}>
                                 {index < 10 ? <div className="remede-box d-flex flex-column align-items-center justify-content-start">
                                     <div className="remede-img m-1"><img src={yogaa.imageUrl} style={{ height: "100%", width: '100%' }} /></div>
+                                    <FaPlay className="youtube-icon" size={30} onClick={() => getStart(yoga)} />
                                     <div className="remede-value m-1 d-flex flex-column justify-content-evenly h-100 align-items-center">
                                         <span className="fs-5 fw-bold ms-2 me-2">{yogaa.yogaName.slice(0, 25)}</span>
                                         <span className="d-flex flex-wrap m-2">{yogaa.benefits.slice(0, 110)}</span>
