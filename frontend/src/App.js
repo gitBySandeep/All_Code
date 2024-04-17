@@ -13,11 +13,14 @@ import GetStart from "./components/Yoga/yogadescription.js";
 import Disease from "./components/Disease/Disease.js";
 import DoctorConsult from "./components/DoctorConsult/DoctorConsult.js";
 import ViewMore from "./components/Homeremedy/HomeremedyDescription.js";
+import Header from "./components/Header/Header.js";
+import Footer from "./components/Footer/Footer.js";
 
 function App() {
   return (
     <div className="d-flex justify-content-center">
       <div>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homeremedy" element={<Homeremedy />} />
@@ -31,8 +34,9 @@ function App() {
           <Route path="/forgetpassword" element={<UserForgetPassword />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/doctorconsult" element={<DoctorConsult/>}/>
+          <Route path="/doctorconsult" element={<DoctorConsult />} />
         </Routes>
+        <Footer />
       </div>
     </div>
   );
