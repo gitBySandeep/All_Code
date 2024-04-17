@@ -1,6 +1,4 @@
 import "./Home.css";
-import Header from '../Header/Header.js'
-import Footer from '../Footer/Footer.js';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -48,28 +46,24 @@ const Home = () => {
     }
 
     return (<>
-        <Header />
         <div className="home">
             <div className="home-contain ">
                 {/* -------------------- */}
-                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./images/home1.jpg" class="d-block w-100" alt="..." />
+                <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <img src="./images/home1.jpg" className="d-block w-100" alt="..." />
                         </div>
-                        <div class="carousel-item">
-                            <img src="./images/home2.jpg" class="d-block w-100" alt="..." />
+                        <div className="carousel-item">
+                            <img src="./images/home2.jpg" className="d-block w-100" alt="..." />
                         </div>
-                        <div class="carousel-item">
-                            <img src="./images/HistoryImage.jpg" class="d-block w-100" alt="..." />
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
@@ -80,7 +74,7 @@ const Home = () => {
                         <div className="containerr-inline d-flex align-items-center mb-3">
                             {homeremedies.map((remedy, index) => <div key={index}>
                                 {index < 10 ? <div className="remede-box d-flex flex-column align-items-center justify-content-start">
-                                    <div className="remede-img m-1"><img src={remedy.imageUrl} onClick={() => viewmore(remedy)} style={{ height: "100%", width: '100%' }} /></div>
+                                    <div className="remede-img m-1"><img src={remedy.imageUrl} alt="..." onClick={() => viewmore(remedy)} style={{ height: "100%", width: '100%' }} /></div>
                                     <div className="remede-value h-100 m-1 d-flex flex-column justify-content-evenly align-items-center">
                                         <span className="fs-5 fw-bold ms-2 me-2">{remedy.remedyName.slice(0, 25)}</span>
                                         <span className="d-flex flex-wrap m-2">{remedy.description.slice(0, 80)}</span>
@@ -98,7 +92,7 @@ const Home = () => {
                         <div className="containerr-inline d-flex align-items-center mb-3 mt-2">
                             {products.map((product, index) => <div key={index}>
                                 {index < 10 ? <div className="remede-box d-flex flex-column align-items-center justify-content-center">
-                                    <div className="remede-img m-1"><img src={product.imageUrl} style={{ height: "100%", width: '100%' }} /></div>
+                                    <div className="remede-img m-1"><img src={product.imageUrl} alt="..." style={{ height: "100%", width: '100%' }} /></div>
                                     <div className="remede-value m-1 d-flex flex-column justify-content-center align-items-center">
                                         <span className="fs-5 fw-bold ms-2 me-2">{product.title.slice(0, 25)}</span>
                                         <span className="fs-5 fw-bold ms-2 me-2" style={{ color: "var(--green)" }}>{product.price} Rs</span>
@@ -125,7 +119,7 @@ const Home = () => {
                         <div className="containerr-inline d-flex align-items-center mb-3">
                             {yoga.map((yogaa, index) => <div key={index}>
                                 {index < 10 ? <div className="remede-box d-flex flex-column align-items-center justify-content-start">
-                                    <div className="remede-img m-1"><img src={yogaa.imageUrl} style={{ height: "100%", width: '100%' }} /></div>
+                                    <div className="remede-img m-1"><img src={yogaa.imageUrl} alt="..." style={{ height: "100%", width: '100%' }} /></div>
                                     <FaPlay className="youtube-icon" size={30} onClick={() => getStart(yoga)} />
                                     <div className="remede-value m-1 d-flex flex-column justify-content-evenly h-100 align-items-center">
                                         <span className="fs-5 fw-bold ms-2 me-2">{yogaa.yogaName.slice(0, 25)}</span>
@@ -140,7 +134,6 @@ const Home = () => {
                 </div>
             </div>
         </div>
-        <Footer />
     </>);
 };
 
