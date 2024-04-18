@@ -11,7 +11,7 @@ export default function ViewMore() {
     const instructions = state.instructions.split(",");
     // console.log(instructions[0]);
     const back = () => {
-        navigate("/homeremedy")
+        navigate(-1)
     }
 
     return <>

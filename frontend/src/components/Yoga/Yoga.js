@@ -2,10 +2,11 @@ import "./Yoga.css";
 import Header from '../Header/Header.js'
 import Footer from '../Footer/Footer.js';
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import { useNavigate } from "react-router-dom"
 import { FaPlay } from "react-icons/fa";
 import "./Yoga.css"
+// import SearchItem from "../Header/Searchitem.js";
 
 const Yoga = () => {
     const [yogalist, setYoga] = useState([]);
@@ -43,6 +44,7 @@ const Yoga = () => {
             </div>
         </div>
         <Footer />
+        {/* <SearchItem yoga={yogalist}/> */}
     </>);
 };
 
