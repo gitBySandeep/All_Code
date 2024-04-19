@@ -1,6 +1,4 @@
 import "./Product.css";
-import Header from '../Header/Header.js'
-import Footer from '../Footer/Footer.js';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -29,8 +27,7 @@ const Product = () => {
 //         navigate("/addToCart",{state:productId})  
 //    }
 
-    return (<>
-    
+    return (<>    
     <ToastContainer />
         <Header />
         <div className="home">
@@ -38,7 +35,7 @@ const Product = () => {
                 <div className="containerr-inline d-flex align-items-center justify-content-center m-1 flex-wrap" style={{ gap: "0" }}>
                     {products.map((product, index) => <div key={index}>
                         <div className="remede-box d-flex flex-column align-items-center justify-content-start m-5 text-center">
-                            <div className="remede-img m-1"><img src={product.imageUrl} style={{ height: "100%", width: '100%' }} /></div>
+                            <div className="remede-img m-1"><img src={product.imageUrl} alt="..." style={{ height: "100%", width: '100%' }} /></div>
                             <div className="remede-value m-1 d-flex flex-column justify-content-center align-items-center">
                                 <span className="fs-5 fw-bold ms-2 me-2">{product.title.slice(0, 25)}</span>
                                 <span className="fs-5 fw-bold ms-2 me-2" style={{ color: "var(--green)" }}>{product.price} Rs</span>
@@ -58,7 +55,6 @@ const Product = () => {
                 </div>
             </div>
         </div>
-        <Footer />
     </>);
 };
 

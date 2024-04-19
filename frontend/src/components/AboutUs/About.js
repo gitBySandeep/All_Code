@@ -1,5 +1,3 @@
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
 import { FaHeart, FaLeaf } from "react-icons/fa";
 import { IoMdDoneAll } from "react-icons/io";
 import "./About.css";
@@ -7,26 +5,8 @@ import "./About.css";
 export default function AboutUs() {
   return (
     <>
-      <Header />
 
       {/* ====================================================FIRST-SECTION======================================================= */}
-
-      {/* FIRST SECTION */}
-      {/* <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-10 mt-2" id="about_Image">
-            <div id="about_Image_text">
-              <h1 className="mb-3">Ayurveda</h1>
-              <p>
-                Ayurveda is an ancient Indian system of medicine that focuses on
-                natural remedies, diet, and lifestyle to prmot health and
-                prevent illness.Ayurveda emphasizes the interconnectedness of
-                body, mind, and sprit
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       {/* FIRST SECTION */}
       <div className="container-fluid position-relative about_Image">
@@ -102,7 +82,7 @@ export default function AboutUs() {
               <div className="col-md-12 text-center mt-3 mb-3">
                 <FaHeart style={{ color: "rgb(86, 142, 86)" }} size={50} />
                 <br></br>
-                <spna className="mt-2 d-block">Promise of Ayurveda</spna>
+                <span className="mt-2 d-block">Promise of Ayurveda</span>
               </div>
             </div>
             <div className="shadow p-3 mb-5" id="history_box">
@@ -172,7 +152,6 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

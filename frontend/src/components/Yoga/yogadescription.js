@@ -1,9 +1,6 @@
 import { useLocation } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import ReactPLayer from 'react-player/youtube';
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-
 export default function GetStart() {
     const navigate = useNavigate();
     const { state } = useLocation();
@@ -12,7 +9,6 @@ export default function GetStart() {
     }
 
     return <>
-        <Header />
         <div className="mt-3 mb-3">
             <div className="d-flex align-items-start justify-content-center m-5 mt-2 p-3">
                 <div className="d-flex flex-column">
@@ -29,6 +25,5 @@ export default function GetStart() {
                 </div>
             </div>
         </div>
-        <Footer />
     </>
 }

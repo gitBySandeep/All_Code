@@ -15,7 +15,7 @@ router.post("/addinbulk", saveInBulk);
 
 router.get("/list", Categorylist);
 
-router.get("/data", body("categoryName", "invalid categoryName").notEmpty(), Categorydata);
+router.post("/data", body("categoryName", "invalid categoryName").notEmpty(), Categorydata);
 
 
 export default router; 
