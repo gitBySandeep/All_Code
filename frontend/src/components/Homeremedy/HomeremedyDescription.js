@@ -6,7 +6,7 @@ export default function ViewMore() {
     const { state } = useLocation();
     const instructions = state.instructions.split(",");
     const back = () => {
-        navigate("/homeremedy")
+        navigate(-1)
     }
 
     return <>

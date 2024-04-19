@@ -1,6 +1,7 @@
 import "./Product.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -12,8 +13,23 @@ const Product = () => {
                 console.log(err);
             })
     }, []);
+      
+    const addToCart = (productId) => {
+        axios.post("http://localhost:3005/cart/addToCart", { userId: localStorage.getItem("userId"), productId,quantity:1 })
+        .then(response => { 
+                toast.success(response.data.message);
+            }).catch(err => {
+                toast.danger("Already added this product");
+            });
+    }
+ 
+//     const addToCart  = (productId)=>{
+//         navigate("/addToCart",{state:productId})  
+//    }
 
-    return (<>
+    return (<>    
+    <ToastContainer />
+        <Header />
         <div className="home">
             <div className="containerr d-flex align-items-center justify-content-center flex-wrap">
                 <div className="containerr-inline d-flex align-items-center justify-content-center m-1 flex-wrap" style={{ gap: "0" }}>
@@ -30,7 +46,7 @@ const Product = () => {
                                     </div>)}
                                 </div>
                                 <div className="d-flex justify-content-evenly w-100">
-                                    <button className="btnn addtocart-btn text-white m-2">Add To cart</button>
+                                    <button className="btnn addtocart-btn text-white m-2"onClick={() => addToCart(product.id)}  >Add To cart</button>
                                     <button className="btnn buynow-btn text-white m-2">Buy Now</button>
                                 </div>
                             </div>

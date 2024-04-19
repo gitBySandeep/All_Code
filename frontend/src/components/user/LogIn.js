@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import Header from '../Header/Header.js'
+import Footer from '../Footer/Footer.js';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function LogIn() {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -22,13 +26,16 @@ export default function LogIn() {
     let [email2, setemail2] = useState("");
     let [number2, setnumber2] = useState("");
 
+    const navigate = useNavigate();
     const signIn = () => {
         axios.post("http://localhost:3005/user/signin", { email, password })
             .then(response => {
                 console.log(response);
-                if (response.status === 200) {
-                    alert(response.data.message)
+                if (response.status == 200) {
+                    console.log(response.data)
+                    localStorage.setItem("userId", response.data.user.id);
                     toast.success("Sign In Success....");
+                        navigate("/");
                 }
             }).catch(err => {
                 alert(err.code)

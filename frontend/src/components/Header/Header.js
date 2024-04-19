@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
-
+import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Viewcart from "../Product/Viewcart";
 
 const Header = () => {
-
     const [diseases, setDiseases] = useState([]);
+    const [search, setsearch] = useState([]);
+    const [cartItemList, setCartItemList] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get("http://localhost:3005/category/list")
             .then(response => {
@@ -28,6 +30,26 @@ const Header = () => {
             }).catch(err => {
                 console.log(err);
             })
+    }
+
+    useEffect(() => {
+        const userId = localStorage.getItem("userId");
+        axios.get(`http://localhost:3005/cart/fetchCartItems/${userId}`)
+            .then(response => {
+                for (let product of response.data.data) {
+                    product.qty = 1;
+
+                    cartItemList.push(product);
+                }
+                setCartItemList([...cartItemList]);
+            }).catch(err => {
+                console.log(err);
+            })
+    }, []);
+
+
+    const viewcart = () => {
+        navigate("/ViewCart");
     }
 
     return (
@@ -69,7 +91,13 @@ const Header = () => {
                                     </ul>
                                 </li>
                                 <li className="nav-item d-flex align-items-center">
-                                    <div className="cart-icon"></div>
+                                    <div className="cart-icon" onClick={() => viewcart()} style={{ fontSize: "19px" }}></div>
+                                    <span className="cart-text" onClick={() => viewcart()}><button type="button" class="btn btn-success position-relative">Cart
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style={{fontSize:"18px"}}>
+                                      {cartItemList.length}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button></span>
                                     <span className="cart-text">Cart</span>
                                 </li>
                             </ul>

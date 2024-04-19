@@ -1,9 +1,10 @@
 import "./Yoga.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import { useNavigate } from "react-router-dom"
 import { FaPlay } from "react-icons/fa";
 import "./Yoga.css"
+// import SearchItem from "../Header/Searchitem.js";
 
 const Yoga = () => {
     const [yogalist, setYoga] = useState([]);
@@ -39,6 +40,7 @@ const Yoga = () => {
                 </div>
             </div>
         </div>
+        <Footer />
     </>);
 };
 
