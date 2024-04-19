@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/placeOrder",
     body("userId", "invalid userId").notEmpty(),
     body("State", "invalid State").notEmpty(),
-    body("City", "invalid City").notEmpty(),
+    body("City","invalid City").notEmpty(),
     body("Address", "invalid Address").notEmpty(),
     body("Pincode", "invalid Pincode").notEmpty(),
     body("UserContact", "invalid UserContact").notEmpty(),

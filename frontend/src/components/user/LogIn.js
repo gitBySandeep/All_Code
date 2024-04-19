@@ -41,6 +41,7 @@ export default function LogIn() {
             }).catch(err => {
                 alert(err.code)
                 console.log(err);
+
                 toast.error("Invelid name password....");
             });
     }

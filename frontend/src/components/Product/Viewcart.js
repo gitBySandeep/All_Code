@@ -39,7 +39,6 @@ export default () => {
         axios.post("http://localhost:3005/cart/updateQty", {productId,quantity,userId })
         .then(response => {
             let product = cartItemList[index];
-            product.qty = quantity;
             totalBillAmount = 0;
             // discountPrice = 0;
             cartItemList.splice(index, 1);
@@ -47,9 +46,7 @@ export default () => {
             setCartItemList([...cartItemList]);
             for (let productItem of cartItemList) {
                 totalBillAmount = totalBillAmount + productItem["products.price"] * productItem.qty * 1;
-                // discountPrice = discountPrice + ((((pars eInt(product["products.discountPercentage"] * product["products.price"]) / 100)) * productItem.qty).toFixed(2) * 1);
             }
-            // setDiscountPrice(discountPrice)
             settotalBillAmount(totalBillAmount);
         }).catch(err => {
            console.log(err);
