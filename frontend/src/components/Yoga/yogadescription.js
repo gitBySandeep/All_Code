@@ -12,7 +12,7 @@ export default function GetStart() {
         <div className="mt-3 mb-3">
             <div className="d-flex align-items-start justify-content-center m-5 mt-2 p-3">
                 <div className="d-flex flex-column">
-                    <ReactPLayer url={state.videoUrl} muted volume={0.8} />
+                    <ReactPLayer url={state.videoUrl}  volume={0.8} />
                     <span className="fs-2 text-center" >{state.yogaName}</span>
                     <br />
                 </div>

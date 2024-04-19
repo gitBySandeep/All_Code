@@ -19,7 +19,7 @@ const Product = () => {
         .then(response => { 
                 toast.success(response.data.message);
             }).catch(err => {
-                toast.danger("Already added this product");
+                toast.error("Already added this product");
             });
     }
  
@@ -29,7 +29,7 @@ const Product = () => {
 
     return (<>    
     <ToastContainer />
-        <Header />
+      
         <div className="home">
             <div className="containerr d-flex align-items-center justify-content-center flex-wrap">
                 <div className="containerr-inline d-flex align-items-center justify-content-center m-1 flex-wrap" style={{ gap: "0" }}>

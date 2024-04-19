@@ -79,13 +79,6 @@ export default () => {
     
     return <>
         <ToastContainer />
-        <Header cartItemList={cartItemList} />
-
-        {/* <hr /> */}
-        {/* <div className="container">
-      <button onClick={() => navigate("/")} className="btn btn-info " style={{height:"40px", width:"130px", color:"white" ,background:"var(--green)"}}>Back</button>
-    </div> */}
-        {/* <h5 className="container" style={{marginLeft:"620px"}}>My Cart Product    ({cartItemList.length})</h5> */}
 
         <div className="container">
             <div className="row">

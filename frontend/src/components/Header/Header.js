@@ -20,7 +20,6 @@ const Header = () => {
             })
     }, []);
 
-    const navigate = useNavigate();
     const Solution = (disease) => {
         let categoryName = disease.categoryName;
         axios.post("http://localhost:3005/category/data", { categoryName })
@@ -34,7 +33,7 @@ const Header = () => {
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
-        axios.get(`http://localhost:3005/cart/fetchCartItems/${userId}`)
+        axios.get("http://localhost:3005/cart/fetchCartItems/${userId}")
             .then(response => {
                 for (let product of response.data.data) {
                     product.qty = 1;
@@ -98,7 +97,6 @@ const Header = () => {
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </button></span>
-                                    <span className="cart-text">Cart</span>
                                 </li>
                             </ul>
                         </div>
