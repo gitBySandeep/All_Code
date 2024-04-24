@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import Header from '../Header/Header.js'
-import Footer from '../Footer/Footer.js';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -31,7 +29,7 @@ export default function LogIn() {
         axios.post("http://localhost:3005/user/signin", { email, password })
             .then(response => {
                 console.log(response);
-                if (response.status == 200) {
+                if (response.status === 200) {
                     console.log(response.data)
                     localStorage.setItem("userId", response.data.user.id);
                     toast.success("Sign In Success....");

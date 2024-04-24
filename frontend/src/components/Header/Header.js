@@ -7,7 +7,6 @@ import Viewcart from "../Product/Viewcart";
 
 const Header = () => {
     const [diseases, setDiseases] = useState([]);
-    const [search, setsearch] = useState([]);
     const [cartItemList, setCartItemList] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
@@ -20,7 +19,7 @@ const Header = () => {
             })
     }, []);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const Solution = (disease) => {
         let categoryName = disease.categoryName;
         axios.post("http://localhost:3005/category/data", { categoryName })
@@ -46,6 +45,22 @@ const Header = () => {
                 console.log(err);
             })
     }, []);
+
+    // ======================================
+    const search = () => {
+        const data = document.getElementById("search_value").value;
+        window.alert(data);
+        axios
+            .post("http://localhost:3005/user/search", { data })
+            .then((response) => {
+                document.write(response, "oooooooooooooooooooo");
+            })
+            .catch((err) => {
+                console.log(err);
+                document.write(err);
+            });
+    };
+    // ======================================
 
 
     const viewcart = () => {
@@ -92,12 +107,12 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item d-flex align-items-center">
                                     <div className="cart-icon" onClick={() => viewcart()} style={{ fontSize: "19px" }}></div>
-                                    <span className="cart-text" onClick={() => viewcart()}><button type="button" class="btn btn-success position-relative">Cart
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style={{fontSize:"18px"}}>
-                                      {cartItemList.length}
-                                    <span class="visually-hidden">unread messages</span>
-                                </span>
-                            </button></span>
+                                    <span className="cart-text" onClick={() => viewcart()}><button type="button" className="btn btn-success position-relative">Cart
+                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style={{ fontSize: "18px" }}>
+                                            {cartItemList.length}
+                                            <span className="visually-hidden">unread messages</span>
+                                        </span>
+                                    </button></span>
                                     <span className="cart-text">Cart</span>
                                 </li>
                             </ul>

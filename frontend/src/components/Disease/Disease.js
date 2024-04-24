@@ -1,15 +1,38 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import './Disease.css';
 import './d.js';
+import { FaPlay } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import axios from "axios";
+// ==============================
+import { IoLocationOutline } from "react-icons/io5";
+import React from "react";
+import "..//DoctorConsult/DoctorConsult.css";
+import { FaGraduationCap } from "react-icons/fa";
+import { LiaLanguageSolid } from "react-icons/lia";
+import { FaUserDoctor } from "react-icons/fa6";
+import { MdWorkHistory } from "react-icons/md";
 
 const Disease = () => {
 
+    const [doctorConsult, setDoctorConsult] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:3005/doctor/doctorconsult")
+            .then(response => {
+                console.log(response.data.result);
+                setDoctorConsult(response.data.result);
+            }).catch(err => {
+                console.log(err);
+            })
+    }, []);
+
     const { state } = useLocation();
-    console.log(state);
+    // console.log(state);
+    // console.log(state.homeremedies);
 
     return (<>
-        <div className="d-flex flex-column">
-            <div className="disease-card my-3 d-flex justify-content-center align-items-center flex-wrap">
+        <div className="d-flex flex-column container-fluid">
+            <div className="container p-2 disease-card my-3 d-flex justify-content-center align-items-center flex-wrap" style={{ background: "var(--white)", width: "", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
                 <div className="card text-center shadow" style={{ width: "18rem" }}>
                     <img src={state.imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
@@ -70,7 +93,31 @@ const Disease = () => {
                     </div>
                 </div>
             </div>
-            <div className="my-3 d-flex justify-content-center text-white">
+
+            {/* ================================== */}
+            <div className="  d-flex justify-content-center text-whit m-1">
+                <div className="container row rounded" style={{ background: "var(--white)", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
+                    <div className="p-2 py-1 text-center">
+                        <h5 className="fw-bold my-2">HOME REMEDIES</h5>
+                        <div className=" containerr my-2 pt-2 d-flex align-items-center justify-content-center">
+                            <div className="containerr-inline d-flex align-items-center mb-3">
+                                {state.homeremedies.map((remedy, index) => <div key={index}>
+                                    <div className="remede-box d-flex flex-column align-items-center justify-content-start" style={{ width: "270px" }}>
+                                        <div className="remede-img m-1" style={{ height: "170px" }}><img src={remedy.imageUrl} alt="..." style={{ height: "100%", width: '100%' }} /></div>
+                                        <div className="remede-value h-100 m-1 d-flex flex-column justify-content-evenly align-items-center">
+                                            <span className="fs-6 fw-bold ms-2 me-2">{remedy.remedyName.slice(0, 25)}</span>
+                                            <span className="d-flex flex-wrap m-2" style={{ fontSize: "0.7rem" }}>{remedy.description.slice(0, 80)}</span>
+                                            <button className="btnn text-white m-2 p-1">View More</button>
+                                        </div>
+                                    </div>
+                                </div>)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* ================================== */}
+            <div className=" my-3 d-flex justify-content-center text-white">
                 <div className="container row shadow rounded" style={{ background: "var(--green)" }}>
                     <div className="p-2 py-5 text-center" >
                         <h5 className="fw-bold">CAUSES</h5>
@@ -78,95 +125,123 @@ const Disease = () => {
                     </div>
                 </div>
             </div>
-            <div className="my-3 d-flex justify-content-center text-whit">
+            {/* ================================== */}
+            <div className=" d-flex justify-content-center text-whit m-1">
                 <div className="container row rounded" style={{ background: "var(--white)", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
+                    <div className="p-2 py-1 text-center">
+                        <h5 className="fw-bold my-2">MEDICINE</h5>
+                        <div className=" containerr my-2 pt-2 d-flex align-items-center justify-content-center">
+                            <div className="containerr-inline d-flex align-items-center mb-3 mt-2">
+                                {state.products.map((product, index) => <div key={index}>
+                                    <div className="remede-box d-flex flex-column align-items-center justify-content-center" style={{ width: "300px" }}>
+                                        <div className="remede-img m-1" style={{ height: "180px" }}><img src={product.imageUrl} alt="..." style={{ height: "100%", width: '100%' }} /></div>
+                                        <div className="remede-value m-1 d-flex flex-column justify-content-center align-items-center">
+                                            <span className="fs-6 fw-bold ms-2 me-2">{product.title.slice(0, 25)}</span>
+                                            <span className="fs-6 fw-bold ms-2 me-2" style={{ color: "var(--green)" }}>{product.price} Rs</span>
+                                            <span className="d-flex flex-wrap m-1  " style={{ fontSize: "0.7rem" }}>{product.description.slice(0, 100)}</span>
+                                            <div className="w-100  d-flex align-items-center justify-content-center">
+                                                {state.products.map((r, i) => <div key={i} className="d-flex">
+                                                    {i < product.rating ? <span className="product-reting text-center m-1"></span> : ""}
+                                                </div>)}
+                                            </div>
+                                            <div className="d-flex justify-content-evenly w-100">
+                                                <button className="btnn addtocart-btn text-white m-1">Add To cart</button>
+                                                <button className="btnn buynow-btn text-white m-1">Buy Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* ================================== */}
+            <div className="d-flex justify-content-center text-whit m-1">
+                <div className="row rounded container" style={{ background: "var(--white)", width: "", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
+                    <div className="py-1 text-center">
+                        <h5 className="fw-bold my-2">YOGA</h5>
+                        <div className="home-yoga text-center">
+                            <div className="containerr my-2 py-2 d-flex align-items-center">
+                                <div className="containerr-inline d-flex align-items-center mb-3">
+                                    {state.yoga.map((yogaa, index) => <div key={index}>
+                                        <div className="remede-box d-flex flex-column align-items-center justify-content-start" style={{ width: "270px" }}>
+                                            <div className="remede-img m-1" style={{ height: "170px" }}><img src={yogaa.imageUrl} alt="..." style={{ height: "100%", width: '100%' }} /></div>
+                                            <FaPlay className="youtube-icon" size={30} />
+                                            <div className="remede-value m-1 d-flex flex-column justify-content-evenly h-100 align-items-center">
+                                                <span className="fs-6 fw-bold ms-2 me-2">{yogaa.yogaName.slice(0, 25)}</span>
+                                                <span className="d-flex flex-wrap m-2" style={{ fontSize: "0.7rem" }}>{yogaa.benefits.slice(0, 110)}</span>
+                                                <button className="fs-6 btnn text-white m-2 p-1">Get Start</button>
+                                            </div>
+                                        </div>
+                                    </div>)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="my-3 d-flex justify-content-center text-whit">
+                <div className="container row rounded text-white" style={{ background: "var(--green)", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
                     <div className="p-2 py-5 text-center">
                         <h5 className="fw-bold">PRECAUTION</h5>
                         <small>{state.Precaution}</small>
                     </div>
                 </div>
             </div>
-            <div className="my-3 d-flex justify-content-center text-whit">
-                <div className="container row rounded" style={{ background: "var(--white)", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
-                    <div className="p-2 py-5 text-center">
-                        <h5 className="fw-bold">Remedy</h5>
-                        <h6>{state.categoryName}</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {/* ================================== */}
-        <div class="multiple-card-slider border border-dark container">
-            <div id="carouselExampleControls3" class="carousel" data-bs-ride="false">
-                <div class="carousel-inner border border-dark d-flex">
-                    <div class="carousel-item border border-primary active">
-                        <div className="d-flex justify-content-between">
-                            <div class="card border border-warning" style={{ width: "300px" }} >
-                                <div class="card-body border border-dark">
-                                    <h5 class="card-title">Card title 1-1</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Learn More</a>
-                                </div>
-                            </div>
-                            <div class="card border border-warning" style={{ width: "300px" }} >
-                                <div class="card-body border border-dark">
-                                    <h5 class="card-title">Card title 1-2</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Learn More</a>
-                                </div>
-                            </div>
-                            <div class="card border border-warning" style={{ width: "300px" }} >
-                                <div class="card-body border border-dark">
-                                    <h5 class="card-title">Card title 1-3</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item border border-primary">
-                        <div class="d-flex justify-content-between">
-                            <div class="card border border-warning" style={{ width: "300px" }} >
-                                <div class="card-body border border-dark">
-                                    <h5 class="card-title">Card title 2-1</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Learn More</a>
-                                </div>
-                            </div>
-                            <div class="card border border-warning" style={{ width: "300px" }} >
-                                <div class="card-body border border-dark">
-                                    <h5 class="card-title">Card title 2-2</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Learn More</a>
-                                </div>
-                            </div>
-                            <div class="card border border-warning" style={{ width: "300px" }} >
-                                <div class="card-body border border-dark">
-                                    <h5 class="card-title">Card title 2-3</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Learn More</a>
+            {/* ================================== */}
+            <div className="d-flex justify-content-center m-1">
+                <div className="row rounded container" style={{ background: "var(--white)", width: "", boxShadow: "2px 2px 15px 2px var(--gray)" }}>
+                    <div className="py-1">
+                        <h5 className="fw-bold my-2 text-center">DOCTOR'S</h5>
+                        <div className="home-yoga">
+                            <div className="containerr my-2 py-2 d-flex align-items-center">
+                                <div className="containerr-inline d-flex align-items-center mb-3">
+                                    {doctorConsult.map((doctor, index) => <div key={index}>
+                                        <div className="remede-box d-flex flex-column align-items-center justify-content-start" style={{ width: "300px" }}>
+                                            <div className="remede-img m-1 text-center" style={{ height: "200px" }}><img src={doctor.doctordetail.doctorImage} className="rounded-circl" alt="..." style={{ height: "100%", width: '100%' }} /></div>
+                                            <FaPlay className="youtube-icon" size={30} />
+                                            <div className="remede-value m-1 d-flex flex-column h-100">
+                                                <h6 className="text-center fw-bold">{doctor.doctorName.slice(0, 25)}</h6>
+                                                <div className="d-flex p-1 gap-1">
+                                                    <FaUserDoctor />
+                                                    <span style={{ fontSize: "0.7rem" }}>{doctor.doctordetail.specialization}</span>
+                                                </div>
+
+                                                <div className="d-flex p-1 gap-1">
+                                                    <MdWorkHistory />
+                                                    <span style={{ fontSize: "0.7rem" }}>{doctor.doctordetail.experience} years of experience</span>
+                                                </div>
+
+                                                <div className="d-flex p-1 gap-1">
+                                                    <FaGraduationCap />
+                                                    <span style={{ fontSize: "0.7rem" }}>{doctor.doctordetail.qualification}</span>
+                                                </div>
+
+                                                <div className="d-flex p-1 gap-1">
+                                                    <LiaLanguageSolid />
+                                                    <span style={{ fontSize: "0.7rem" }}>{doctor.doctordetail.language}</span>
+                                                </div>
+
+                                                <div className="d-flex p-1 gap-1">
+                                                    <IoLocationOutline />
+                                                    <span style={{ fontSize: "0.7rem" }}>{doctor.doctordetail.clinicAddress}</span>
+                                                </div>
+                                                <div className="d-flex justify-content-evenly w-100">
+                                                    <button className="btnn  addtocart-btn  m-2" >Consult</button>
+                                                    <button className="btnn text-white m-2" >Appointment</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>)}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
+            {/* ================================== */}
         </div>
-        {/* ================================== */}
     </>);
 };
 

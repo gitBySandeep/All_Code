@@ -95,7 +95,7 @@ export default () => {
             </div>
         </div>
         {
-            cartItemList.length != 0 ? (
+            cartItemList.length !== 0 ? (
                 <section className="row border m-0 p-0 ">
                     <div className="col-md-9 p-2 border d-flex justify-content-center align-content-center flex-column border border-success">
                     <table className="table table-responsive justify-content-space-evenly " >

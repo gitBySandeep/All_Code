@@ -40,7 +40,6 @@ const Yoga = () => {
                 </div>
             </div>
         </div>
-        <Footer />
     </>);
 };
 
