@@ -29,7 +29,6 @@ const Product = () => {
 
     return (<>    
     <ToastContainer />
-        <Header />
         <div className="home">
             <div className="containerr d-flex align-items-center justify-content-center flex-wrap">
                 <div className="containerr-inline d-flex align-items-center justify-content-center m-1 flex-wrap" style={{ gap: "0" }}>

@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import UserForgetPassword from "./components/user/ForgetPassword.js";
-import UserLogIn from "./components/user/LogIn.js";
+import UserForgetPassword from "./components/User/ForgetPassword.js";
+import UserLogIn from "./components/User/LogIn.js";
 import AboutUs from "./components/AboutUs/About.js";
 import Contact from "./components/Contact/Contact.js";
 import Home from "./components/Home/Home.js";
@@ -41,6 +41,7 @@ function App() {
           <Route path="/viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
+          <Route path="/header" element={<Header />} />
         </Routes>
         <Footer />
       </div>
