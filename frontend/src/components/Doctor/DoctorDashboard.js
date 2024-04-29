@@ -5,7 +5,7 @@ import { FaGraduationCap } from "react-icons/fa";
 import { LiaLanguageSolid } from "react-icons/lia";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdWorkHistory } from "react-icons/md";
-
+import './DoctorDashboard.css'
 
 
 const DoctorDashboard = () => {
@@ -21,7 +21,7 @@ const DoctorDashboard = () => {
                 console.log(err);
             })
     }, []);
-
+    
     return <>
 
         <div>
@@ -33,11 +33,11 @@ const DoctorDashboard = () => {
                             <div key={index}>
                                 <div className="doctor-profile container border shadow-lg p-3 mb-5 bg-body rounded mt-5 mb-4">
                                     <div className='row mt-4 mb-2 alldata'>
-                                        <div className='col-md-3'>
-                                            <div className="doctor-img ">
+                                        {/* <div className='col-md-3'> */}
+                                            <div className="doctor-imgs ">
                                                 <img src={doctor.doctordetail.doctorImage} alt="Doctor Image" className="doctor-image rounded-circle" />
                                             </div>
-                                        </div>
+                                        {/* </div> */}
                                         <div className='col-md-7 profile-info mt-4'>
                                             <h1>{doctor.doctorName}</h1>
                                             <div className='doctor-details'>
@@ -65,7 +65,7 @@ const DoctorDashboard = () => {
                                                 </div>
                                             </div>
                                         </div>
-
+                                      
                                     </div>
                                 </div>
                             </div>
