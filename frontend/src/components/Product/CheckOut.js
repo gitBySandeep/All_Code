@@ -44,7 +44,7 @@ function Checkout() {
                     console.log(err);
                     toast.error("No Save Information", err);
                 })
-
+                
             try {
                 // Fetching payment key
                 const { data: { key } } = await axios.get("http://localhost:3005/payment/getkey");
