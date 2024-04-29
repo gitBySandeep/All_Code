@@ -5,7 +5,7 @@ import { body } from 'express-validator';
 const router = express.Router();
 
 router.post("/placeOrder",
-    body("userId", "invalid userId").notEmpty(),
+    body("FullName","invalid Name").notEmpty(),
     body("State", "invalid State").notEmpty(),
     body("City","invalid City").notEmpty(),
     body("Address", "invalid Address").notEmpty(),
