@@ -14,6 +14,7 @@ const Product = () => {
                 console.log(err);
             })
     }, []);
+    
 
     return (<>
         <Header />

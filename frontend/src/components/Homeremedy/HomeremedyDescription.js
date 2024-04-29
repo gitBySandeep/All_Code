@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import ReactPLayer from 'react-player/youtube';
 import Header from "../Header/Header";
@@ -16,6 +16,7 @@ export default function ViewMore() {
 
     return <>
         <Header />
+        <Outlet/>
         <div className="rmm mt-3 mb-4 ">
             <div className=" rmm d-flex align-items-start justify-content-evenly m-5 mt-2 p-3 flex-wrap ">
                 <div className="rmm d-flex flex-column ">
@@ -38,7 +39,7 @@ export default function ViewMore() {
                     <button onClick={back} className="btnn text-white m-2">Back</button>
                 </div>
             </div>
-        </div>
+        </div> 
         <Footer />
     </>
 }

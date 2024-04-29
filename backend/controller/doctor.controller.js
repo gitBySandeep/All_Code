@@ -25,6 +25,7 @@ export const SignUp = (request, response, next) => {
         })
 }
 
+
 export const signIn = async (request, response, next) => {
     const errors = validationResult(request);
     if (!errors.isEmpty())
@@ -176,20 +177,29 @@ export const doctorProfile = (request, response, next) => {
 }
 
 export const doctorAppointment = (request, response, next) => {
-    const errors = validationResult(request);
-    if (!errors.isEmpty())
-        return response.status(401).json({ error: errors.array() });
+    // const errors = validationResult(request);
+    // if (!errors.isEmpty())
+    //     return response.status(401).json({ error: errors.array() });
 
     Appointment.create({
         status: "pending",
-        appointmentTime: "pending",
-        userId: request.body.userId,
-        doctorId: request.body.doctorId
+        appointmentTime: request.body.appointmentTime,
+        appointmentDate:request.body.appointmentDate,
+        doctorId: request.body.doctorId,
+        name:request.body.name,
+        phone:request.body.phone,
+        age:request.body.age,
+        email:request.body.email,
+        gender:request.body.gender,
+        
+
+
     })
         .then((result) => {
-            return response.status(200).json({ message: "Appointment Saved...." });
+            return response.status(200).json({ message: "Appointment Saved...." ,result});
         })
         .catch((err) => {
+            console.log(err)
             return response.status(500).json({ error: "Internal server error...", err });
         })
 }
@@ -203,6 +213,7 @@ export const appointmentList = (request, response, next) => {
             return response.status(500).json({ error: "Internal server error...", err });
         })
 }
+
 
 export const appointmentDetailslist = (request, response, next) => {
 
@@ -254,7 +265,6 @@ export const updateAppointmentStatus = (request, response, next) => {
         })
 
 }
-
 export const doctorConsult = (request, response, next) => {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
@@ -265,9 +275,10 @@ export const doctorConsult = (request, response, next) => {
         attributes: ['doctorName'],
         include: [{
             model: DoctorDetail,
-            attributes: ['doctorImage', 'specialization', 'experience', 'qualification', 'clinicAddress', 'gender', 'language']
+            attributes: ['doctorId','doctorImage', 'specialization', 'experience', 'qualification', 'clinicAddress', 'gender', 'language']
         }]
     })
+    
         .then((result) => {
             return response.status(200).json({ message: 'Status updated....', result })
         })
@@ -275,6 +286,8 @@ export const doctorConsult = (request, response, next) => {
             return response.status(500).json({ error: "Internal server error...", err });
         });
         
+        
 
 }
+
 
