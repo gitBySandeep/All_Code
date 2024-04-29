@@ -1,8 +1,7 @@
 import express from 'express';
-import { SignUp, forgotpassword, list, listbyemail, setnewpassword, signIn, update } from '../controller/user.controller.js';
+import { SignUp, forgotpassword, list, listbyemail, setnewpassword, signIn, update, verifyOTP } from '../controller/user.controller.js';
 import { verifyToken } from '../middleware/auth.js';
 import { body } from 'express-validator';
-import { search } from '../controller/search.controller.js';
 
 const router = express.Router();
 
@@ -17,14 +16,13 @@ router.post("/signIn",
     body("email", "invalid email").isEmail().notEmpty(),
     body("password", "invalid password").notEmpty(),
     signIn);
-router.post("/forgotpassword",
-    body("email", "invalid email").isEmail().notEmpty(),
-    body("name", "invalid name").notEmpty(),
-    forgotpassword);
+
+router.post("/forgotpassword", body("email", "invalid email").isEmail().notEmpty(), forgotpassword);
+
+router.post("/verifyOTP", verifyOTP);
 
 router.put("/setnewpassword",
     body("email", "invalid email").isEmail().notEmpty(),
-    body("name", "invalid name").notEmpty(),
     body("password", "invalid password").notEmpty(),
     setnewpassword);
 

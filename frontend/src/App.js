@@ -41,6 +41,7 @@ function App() {
           <Route path="/viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
+          <Route path="/header" element={<Header />} />
         </Routes>
         <Footer />
       </div>
