@@ -117,7 +117,7 @@ const Header = () => {
                                             </li>
                                             <li> <hr className="dropdown-divider" /></li>
                                             <li>
-                                                <Link style={{ color: "var(--green)", textDecoration: "none" }} to="/">
+                                                <Link style={{ color: "var(--green)", textDecoration: "none", cursor: "pointer" }} to="/">
                                                     <div className="dropdown-item d-flex align-items-center" style={{ color: "var(--green)" }}>
                                                         <div className="login-cart"></div>
                                                         <span className="login-texth ms-2">Cart</span>
@@ -162,14 +162,8 @@ const Header = () => {
                                         </ul>
                                     </li>
                                 }
-                                <li className="nav-item d-flex align-items-center loginheader">
-                                    <div className="cart-icon" onClick={() => viewcart()} style={{ fontSize: "19px" }}></div>
-                                    {/* <span className="cart-text" onClick={() => viewcart()}><button type="button" className="btn btn-success position-relative">Cart
-                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style={{ fontSize: "18px" }}>
-                                            {cartItemList.length}
-                                            <span className="visually-hidden">unread messages</span>
-                                        </span>
-                                    </button></span> */}
+                                <li onClick={() => viewcart()} style={{ cursor: "pointer" }} className="nav-item d-flex align-items-center loginheader">
+                                    <div className="cart-icon" style={{ fontSize: "19px" }}></div>
                                     <span className="cart-text">Cart</span>
                                 </li>
                             </ul>
