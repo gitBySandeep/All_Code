@@ -9,6 +9,8 @@ import CartRouter from './routes/cart.route.js';
 import YogaRouter from './routes/yoga.routes.js';
 import HomeRemedyRouter from './routes/homeremedy.route.js';
 import OrderRouter from './routes/order.route.js';
+import ContactRouter from "./routes/contact.route.js";
+import ConsultRouter from  "./routes/consult.route.js"
 import './model/association.js';
 import cors from 'cors';
 
@@ -27,4 +29,9 @@ app.use('/homeremedy', HomeRemedyRouter);
 app.use('/yoga', YogaRouter);
 app.use('/cart', CartRouter);
 app.use('/order', OrderRouter);
-app.listen(3005, () => { console.log("server started.....") })
+app.use('/contact',ContactRouter);
+app.use("/consult",ConsultRouter);
+app.listen(3005, () => { console.log("server started.....") }) 
+
+
+

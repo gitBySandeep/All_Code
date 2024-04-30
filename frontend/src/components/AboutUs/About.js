@@ -23,6 +23,8 @@ export default function AboutUs() {
         </div>
       </div>
 
+
+
       {/* ==================================================SECOND-SECTION======================================================= */}
 
       {/* SECOND SECTION */}
@@ -84,13 +86,13 @@ export default function AboutUs() {
             <div className="shadow p-3 mb-5" id="history_box">
               We have a range of Ayurvedic Products. From Thailams to hair
               treatment oils. We have got everything covered.We also have the
-              best quality facial ubtans and face packs to suit every skin type.
+              best quality facial ubtans and face packs to suit every skin type.
               All of our products are made in small batches using handpicked and
               carefully sourced ingredients. Our Extra Virgin Coconut Oil is
               extracted from freshcoconut milk without any chemical processes,
               it is the purest form of coconut oil, water white in color.
               Absolutely No Heat’ involved in the process making it India’s best
-              VCO. Our Ayurvedic Thailams are made using authentic Ayurvedic
+              VCO. Our Ayurvedic Thailams are made using authentic Ayurvedic
               reference texts and is manufactured in small batches which ensures
               quality. Manufactured within our facility located in Palakkad,
               Kerala.
@@ -148,6 +150,7 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
