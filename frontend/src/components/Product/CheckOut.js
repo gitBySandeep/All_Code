@@ -126,7 +126,6 @@ const Checkout = ()=> {
 
     
     return <>
-        <Header/>
             <section className='container-fluid  p-4'>
                <section className='container p-2 justify-content-center row align-content-around m-auto d-flex' id='checkout-page' >
                     <div id='checkout-left' className='col-md-7 me-3 border'style={{height:"390px"}} >
