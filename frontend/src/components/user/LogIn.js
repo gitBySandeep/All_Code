@@ -12,6 +12,7 @@ export default function LogIn() {
     const toggleForm = () => {
         setIsSignUp(!isSignUp);
     };
+    
 
     const [name, setname] = useState("");
     const [email, setEmail] = useState("");

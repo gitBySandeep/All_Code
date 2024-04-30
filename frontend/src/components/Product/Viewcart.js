@@ -82,7 +82,7 @@ export default () => {
     
     return <>
         <ToastContainer />
-        <Header cartItemList={cartItemList} />
+        {/* <Header cartItemList={cartItemList} /> */}
 
         {/* <hr /> */}
         {/* <div className="container">
