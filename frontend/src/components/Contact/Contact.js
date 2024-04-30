@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 
+
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -115,11 +116,12 @@ const Contact = () => {
         return errors;
     };
 
+
    
 
     return (
         <>
-            <Header />
+          
             <section className="contact" style={{ width: "99vw" }}>
                 <div className="contact-img">
                     <div className="contact-img-main"></div>
@@ -208,7 +210,7 @@ const Contact = () => {
                 </div>
             </section>
             <br></br>
-            <Footer />
+          
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title className='text-success'>Success!</Modal.Title>

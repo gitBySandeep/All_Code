@@ -30,6 +30,7 @@
     padding-bottom: 8px;
     border-radius: 10px;
     color: var(--green);
+    cursor: pointer;
 
 }
 .selected-time {

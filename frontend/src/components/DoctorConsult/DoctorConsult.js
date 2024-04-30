@@ -6,8 +6,6 @@ import { LiaLanguageSolid } from "react-icons/lia";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdWorkHistory } from "react-icons/md";
 import { AiOutlineMessage } from "react-icons/ai";
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
 import ChatBot from '../ChatBot/ChatBot.js'; 
 import "./DoctorConsult.css";
 import { useNavigate } from "react-router-dom";
@@ -43,7 +41,6 @@ const DoctorConsult = () => {
 
     return (
         <>
-            <Header />
             <div className={`container ${isChatbotOpen ? "blur" : ""}`}>
                 <AiOutlineMessage size={40} className='chatbot' onClick={toggleChatbot} />
                 {doctorConsult.map((doctor, index) => (
@@ -92,7 +89,7 @@ const DoctorConsult = () => {
                 ))}
             </div>
             {isChatbotOpen && <ChatBot style={{ zIndex: 1 }} />} {/* Ensure ChatBot z-index is lower than buttons */}
-            <Footer />
+         
         </>
     );
 };

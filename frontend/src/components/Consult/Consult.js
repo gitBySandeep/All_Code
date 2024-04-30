@@ -94,8 +94,7 @@ const Consult = () => {
 
     return (
         <>
-            <Header />
-            <div className="doctor-consult container rounded mt-5 mb-4 shadow-lg p-3 mb-5 bg-body rounded">
+            <div className="doctor-consult container  rounded my-4 shadow-lg p-3 mt-0 bg-body rounded">
                 <div className='row mb-2 alldata pt-2 pb-2 '>
                     <div className='col-4'>
                         <div className="doctor-img">
@@ -148,7 +147,7 @@ const Consult = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
+          
         </>
     );
 };

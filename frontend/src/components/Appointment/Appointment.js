@@ -1,6 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from '../Header/Header.js'
-import Footer from '../Footer/Footer.js';
 import { IoLocationOutline } from "react-icons/io5";
 import React, { useState } from "react";
 import { FaGraduationCap } from "react-icons/fa";
@@ -90,7 +88,7 @@ const Appointment = () => {
 
     return (
         <>
-            <Header />
+          
             <div className="doctor-consult container rounded my-5 shadow-lg p-0 bg-body rounded">
             <RxCross2  className="closeicon text-white mt-2" onClick={back} />
                 <h1 className="fs-3 text-center text-white p-2" style={{background:"var(--green)"}}>Schedule Appointment</h1>
@@ -204,15 +202,15 @@ const Appointment = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="Phone">Phone<span> *</span></label>
-                                    <input type="text" className="form-control form-control-sm custom-input custom-input mb-3" id="Phone" name="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                    <input type="text" className="form-control form-control-sm custom-input custom-input mb-3" id="Phone" name="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} required  pattern="[0-9]{10}" title="Please enter a 10 digit phone number."/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="email">Email<span> *</span></label>
-                                    <input type="text" className="form-control form-control-sm custom-input custom-input mb-3" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                    <input type="text" className="form-control form-control-sm custom-input custom-input mb-3" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address." />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="Age">Age<span> *</span></label>
-                                    <input type="text" className="form-control form-control-sm custom-input custom-input mb-3" id="Age" name="Age" value={age} onChange={(e) => setAge(e.target.value)} required />
+                                    <input type="text" className="form-control form-control-sm custom-input custom-input mb-3" id="Age" name="Age" value={age} onChange={(e) => setAge(e.target.value)} required min="1" max="100" title="Please enter a valid age between 1 and 100." />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="Gender">Gender<span> *</span></label><br></br><br></br>
@@ -265,7 +263,7 @@ const Appointment = () => {
                 </form>
 
             </div>
-            <Footer />
+       
         </>
     );
 }
