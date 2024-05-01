@@ -17,6 +17,9 @@ import Viewcart from "./components/Product/Viewcart.js";
 import Checkout from "./components/Product/CheckOut.js";
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
+import PaymentSuccess from "./components/Product/paymentsuccess.js";
+import DoctorDashboard from "./components/docterdashboard/dashboard.js";
+import PatientInformation from "./components/docterdashboard/patients.js";
 
 function App() {
   return (
@@ -40,6 +43,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/doctorDashboard" element={<DoctorDashboard/>} />
+          <Route path="/PatientInformation" element={<PatientInformation/>} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
         </Routes>
         <Footer />

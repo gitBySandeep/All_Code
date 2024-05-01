@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import React, { useEffect, useRef, useState } from 'react'
 import axios from "axios";
 import { BsCurrencyRupee } from "react-icons/bs";
@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 let userId = localStorage.getItem("userId")
 
 function Checkout() {
+    const navigate = useNavigate();
     const location = useLocation();
     const { cartItemList, totalBillAmount } = location.state;
 
@@ -33,18 +34,11 @@ function Checkout() {
 
     const PlaceOrder = async (amount) => {
 
-        if ((FullName === "") && (State === "") && (City === "") && (UserContact === "") && (Address === "") && (Pincode === "") || ((FullName === "" || (State === "") || (City === "") || (UserContact === "") || (Address === "") || (Pincode === ""))) ) {
+        if ((FullName === "") && (State === "") && (City === "") && (UserContact === "") && (Address === "") && (Pincode === "") || ((FullName === "" || (State === "") || (City === "") || (UserContact === "") || (Address === "") || (Pincode === "")))) {
             toast.error("First Fill information")
         }
         else {
-            await axios.post("http://localhost:3005/order/placeOrder", { FullName, State, City, UserContact, Address, Pincode, userId })
-                .then(response => {
-                    toast.success("Save Information Successfully");
-                }).catch(err => {
-                    console.log(err);
-                    toast.error("No Save Information", err);
-                })
-                
+
             try {
                 // Fetching payment key
                 const { data: { key } } = await axios.get("http://localhost:3005/payment/getkey");
@@ -73,9 +67,39 @@ function Checkout() {
                     },
                     theme: {
                         "color": "blue"
-                    }
-                };
+                    },
+                    handler: async function (response) {
+                        try {
+                            // Verify payment status
+                            console.log(response);
+                            const paymentVerificationResponse = await axios.post("http://localhost:3005/payment/paymentverification", {
+                                razorpay_order_id: order.id,
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_signature: response.razorpay_signature,
+                                amount: amount
+                            });
 
+                            if (paymentVerificationResponse.data.success) {
+                                // Payment verified, now call placeOrder API
+                                const myOrder = await axios.post("http://localhost:3005/order/placeOrder", {
+                                    FullName, State, City, UserContact, Address, Pincode, userId })
+                                    .then(response=>{
+                                        // toast.success("saved information")
+                                        window.alert("order successfully...");
+                                        navigate("/");
+                                    }).catch(error=>{
+                                        toast.error("error");
+                                    })   
+                                console.log("PlaceOrder API response:", myOrder.data);
+                            } else {
+                                // Payment verification failed
+                                console.error("Payment verification failed:", paymentVerificationResponse.data.error);
+                            }
+                        } catch (error) {
+                            console.error("Error during payment verification:", error);
+                        };
+                    }
+                }
                 // Creating and opening Razorpay instance
                 const razor = new window.Razorpay(options);
                 razor.open();

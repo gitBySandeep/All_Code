@@ -26,7 +26,7 @@ const Product = () => {
                 });
         }
         else{
-            toast.error("please SignUp and add items in your cart");
+            toast.error("please SignIn and add items in your cart");
         }
     }
 
