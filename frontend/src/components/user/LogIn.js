@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import Header from '../Header/Header.js'
-import Footer from '../Footer/Footer.js';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -14,6 +12,7 @@ export default function LogIn() {
     const toggleForm = () => {
         setIsSignUp(!isSignUp);
     };
+    
 
     const [name, setname] = useState("");
     const [email, setEmail] = useState("");
@@ -31,11 +30,12 @@ export default function LogIn() {
         axios.post("http://localhost:3005/user/signin", { email, password })
             .then(response => {
                 console.log(response);
-                if (response.status == 200) {
+                if (response.status === 200) {
                     console.log(response.data)
                     localStorage.setItem("userId", response.data.user.id);
                     toast.success("Sign In Success....");
-                        navigate("/");
+                    sessionStorage.setItem('userExist', 1);
+                    navigate("/");
                 }
             }).catch(err => {
                 alert(err.code)
@@ -77,7 +77,7 @@ export default function LogIn() {
                                 <div className="ms-2 me-2 icon-git"></div>
                                 <div className="ms-2 me-2 icon-linkedin"></div>
                             </div>
-                            <span>or use your email for registration</span>
+                            <span>or use your email f   or registration</span>
                             <input className='signin-input' onChange={(event) => { (event.target.value === "") ? setinput2("name is required") : (!event.target.value.match("^[a-z A-Z]+$")) ? setinput2("name contains only charecters") : (!event.target.value.match("^[a-z A-Z]{2,20}$")) ? setinput2("name must be at least 2 characters long.") : setinput2(""); setname(event.target.value); }} type="text" placeholder="User Name" />
                             <small className='signin-input-message'>{input2}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value === "") ? setemail2("email is required") : (!event.target.value.match(/^[^\s@]+@/)) ? setemail2("Email must start with valid characters.") : (!event.target.value.match(/@gmail\.com$/)) ? setemail2("Email must end with '@gmail.com'.") : setemail2(""); setEmail(event.target.value); }} type="email" placeholder="Email" />

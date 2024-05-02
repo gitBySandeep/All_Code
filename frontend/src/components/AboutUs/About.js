@@ -1,3 +1,5 @@
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import { FaHeart, FaLeaf } from "react-icons/fa";
 import { IoMdDoneAll } from "react-icons/io";
 import "./About.css";
@@ -5,26 +7,23 @@ import "./About.css";
 export default function AboutUs() {
   return (
     <>
-
       {/* ====================================================FIRST-SECTION======================================================= */}
 
       {/* FIRST SECTION */}
       <div className="container-fluid position-relative about_Image">
-  <img
-    src="./images/ayurvedas1.jpg"
-    className="img-fluid about_Image"
-    alt="Ayurveda Image"
-  />
-  <div className="position-absolute top-50 start-50 translate-middle text-center Image_text" style={{color: "white"}}> {/* Center content */}
-    <h1 className="mb-2">Ayurveda</h1>
-    <p>
-      Ayurveda is an ancient Indian system of medicine that focuses on
-      natural remedies, diet, and lifestyle to promote health and prevent
-      illness. Ayurveda emphasizes the interconnectedness of body, mind, and
-      spirit.
-    </p>
-  </div>
-</div>
+        <img src="./images/ayurvedas1.jpg" className="img-fluid about_Image" alt="Ayurveda Image" />
+        <div className="position-absolute top-50 start-50 translate-middle text-center Image_text" style={{ color: "white" }}> {/* Center content */}
+          <h1 className="mb-2">Ayurveda</h1>
+          <p>
+            Ayurveda is an ancient Indian system of medicine that focuses on
+            natural remedies, diet, and lifestyle to promote health and prevent
+            illness. Ayurveda emphasizes the interconnectedness of body, mind, and
+            spirit.
+          </p>
+        </div>
+      </div>
+
+
 
       {/* ==================================================SECOND-SECTION======================================================= */}
 
@@ -32,9 +31,8 @@ export default function AboutUs() {
       <div className="container border broder-dark">
         <div className="row d-flex align-items-center">
           <div classname="col-12">
-            <div className="text-center mb-3 mt-3">
-              <h1 className="border-bottom border-2 border-dark d-inline pb-1 ">
-                {" "}
+            <div className="text-center mb-3 mt-3 HistoryofAyurveda">
+              <h1 className="border-bottom border-2 border-dark d-inline pb-1">
                 History of Ayurveda
               </h1>
             </div>
@@ -82,19 +80,19 @@ export default function AboutUs() {
               <div className="col-md-12 text-center mt-3 mb-3">
                 <FaHeart style={{ color: "rgb(86, 142, 86)" }} size={50} />
                 <br></br>
-                <span className="mt-2 d-block">Promise of Ayurveda</span>
+                <spna className="mt-2 d-block">Promise of Ayurveda</spna>
               </div>
             </div>
             <div className="shadow p-3 mb-5" id="history_box">
               We have a range of Ayurvedic Products. From Thailams to hair
               treatment oils. We have got everything covered.We also have the
-              best quality facial ubtans and face packs to suit every skin type.
+              best quality facial ubtans and face packs to suit every skin type.
               All of our products are made in small batches using handpicked and
               carefully sourced ingredients. Our Extra Virgin Coconut Oil is
               extracted from freshcoconut milk without any chemical processes,
               it is the purest form of coconut oil, water white in color.
               Absolutely No Heat’ involved in the process making it India’s best
-              VCO. Our Ayurvedic Thailams are made using authentic Ayurvedic
+              VCO. Our Ayurvedic Thailams are made using authentic Ayurvedic
               reference texts and is manufactured in small batches which ensures
               quality. Manufactured within our facility located in Palakkad,
               Kerala.
@@ -147,11 +145,12 @@ export default function AboutUs() {
               manufactured to the strictest and highest quality standards- in
               state of the art GMP compliant, Drug Controller licensed and
               Ayurvedic Licensed laboratories/manufacturing plants located in
-              Kerala, India. 
+              Kerala, India.
             </div>
           </div>
         </div>
       </div>
+   
     </>
   );
 }

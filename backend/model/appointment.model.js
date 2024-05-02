@@ -49,7 +49,11 @@ const Appointment = sequelize.define('appointment', {
         type: DataTypes.INTEGER,
         allowNull: false
     }
+    
+
+
 });
+
 
 sequelize.sync().then(() => {
     console.log("Appointment table created....");

@@ -40,8 +40,8 @@ Order.belongsTo(User, { foreignKey: 'userId' });
 Doctor.hasMany(Appointment, { foreignKey: 'doctorId', onDelete: 'CASCADE' })
 Appointment.belongsTo(Doctor, { foreignKey: 'doctorId', onDelete: 'CASCADE' })
 
-User.hasMany(Appointment, { foreignKey: 'userId', onDelete: 'CASCADE' })
-Appointment.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' })
+// User.hasMany(Appointment, { foreignKey: 'userId', onDelete: 'CASCADE' })
+// Appointment.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' })
 
 // doctordetails
 Doctor.hasOne(DoctorDetail, { foreignKey: "id" });

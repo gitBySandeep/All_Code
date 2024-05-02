@@ -7,6 +7,10 @@ const Order = sequelize.define("Order", {
         primaryKey: true,
         autoIncrement: true
     },
+    FullName:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
     OrderDate: {
         type: DataTypes.STRING,
         allowNull: false

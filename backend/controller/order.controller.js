@@ -28,7 +28,7 @@ export const placedOrder = async (request, res, next) => {
         await Order.create({
             OrderDate: currentDate,
             State: request.body.State,
-            FullName: request.body.FullName,
+            FullName:request.body.FullName,
             City: request.body.City,
             Address: request.body.Address,
             Pincode: request.body.Pincode,

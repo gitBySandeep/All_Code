@@ -160,7 +160,7 @@ function Checkout() {
                                 <option>Arunachal Pradesh</option>
                             </select>
                         </div>
-
+                    
                         <div className='col-md-6 mt-3'>
                             <label>City*</label><br />
                             <input type='text' onChange={(event) => { (event.target.value === "") ? setCity2("City is required") : (!event.target.value.match("^[a-z A-Z]+$")) ? setCity2("City contains only charecters") : (!event.target.value.match("^[a-z A-Z]{1,30}$")) ? setCity2("City must be at least 2 characters long.") : setCity2(""); setCity(event.target.value) }} className='form-control' placeholder="Enter City" required />

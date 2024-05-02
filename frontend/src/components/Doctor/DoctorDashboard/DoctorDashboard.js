@@ -3,8 +3,10 @@ import axios from "axios";
 import { FaUserDoctor } from "react-icons/fa6";
 import './DoctorDashboard.css'
 
+
 const DoctorDashboard = () => {
     const [doctorConsult, setDoctorConsult] = useState([]);
+
 
     useEffect(() => {
         axios.get("http://localhost:3005/doctor/doctorconsult")
@@ -17,8 +19,9 @@ const DoctorDashboard = () => {
     }, []);
 
     return <>
-    
+
         <div>
+            <h1>Dashboard</h1>
             <div className="container">
                 <div className="row">
                     <div className="col-3">
@@ -41,6 +44,7 @@ const DoctorDashboard = () => {
 
                                                 </div>
                                             </div>
+                                           
                                         </div>
                                         <div className=" d-flex justify-content-center align-item-center">
                                                 <ul className="mt-2 list-group " style={{listStyle:"none"}}>
@@ -52,12 +56,14 @@ const DoctorDashboard = () => {
                                                     <li className="border shadow-lg p-3  bg-body rounded px-5">LogOut</li>
                                                 </ul>
                                             </div>
+
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <div className="col-8">
+
                     </div>
                 </div>
             </div>

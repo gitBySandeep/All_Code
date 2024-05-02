@@ -1,5 +1,5 @@
 import express from "express";
-import { Categorydata, Categorylist, save, saveInBulk } from "../controller/category.controller.js";
+import { Categorydata, Categorylist, save, saveInBulk, search } from "../controller/category.controller.js";
 import { body } from "express-validator";
 
 const router = express.Router();
@@ -17,5 +17,6 @@ router.get("/list", Categorylist);
 
 router.post("/data", body("categoryName", "invalid categoryName").notEmpty(), Categorydata);
 
+router.post("/search", search);
 
 export default router; 

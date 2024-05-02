@@ -1,7 +1,7 @@
 import "./Homeremedy.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 const Homeremedy = () => {
     const [homeremedies, setHomeremedies] = useState([]);
     useEffect(() => {
@@ -14,9 +14,11 @@ const Homeremedy = () => {
     }, []);
 
     const navigate = useNavigate();
+    
     const ViewMore = (remedy) => {
         navigate("/ViewMore", { state: remedy });
     }
+
     return (<>
         <div className="home">
             <div className="containerr d-flex align-items-center justify-content-center flex-wrap">
@@ -27,7 +29,7 @@ const Homeremedy = () => {
                             <div className="remede-value h-100 m-1 d-flex flex-column justify-content-evenly align-items-center text-center">
                                 <span className="fs-5 fw-bold ms-2 me-2">{remedy.remedyName.slice(0, 25)}</span>
                                 <span className="d-flex flex-wrap m-2">{remedy.description.slice(0, 80)}</span>
-                                <button className="btnn text-white m-2" onClick={() =>ViewMore(remedy)}>View More</button>
+                                <Link to="/ViewMore"><button className="btnn text-white m-2" onClick={() => ViewMore(remedy)}>View More</button></Link>
                             </div>
                         </div>
                     </div>)}
