@@ -42,7 +42,7 @@ const Header = () => {
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
-        axios.get(`http://localhost:3005/cart/fetchCartItems/${userId}`)
+        axios.get("http://localhost:3005/cart/fetchCartItems/${userId}")
             .then(response => {
                 for (let product of response.data.data) {
                     product.qty = 1;
@@ -203,4 +203,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Header;     

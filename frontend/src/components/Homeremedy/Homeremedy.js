@@ -14,9 +14,11 @@ const Homeremedy = () => {
     }, []);
 
     const navigate = useNavigate();
+    
     const ViewMore = (remedy) => {
         navigate("/ViewMore", { state: remedy });
     }
+
     return (<>
         <div className="home">
             <div className="containerr d-flex align-items-center justify-content-center flex-wrap">

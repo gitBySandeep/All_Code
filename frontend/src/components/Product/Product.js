@@ -17,14 +17,20 @@ const Product = () => {
     }, []);
 
     const addToCart = (productId) => {
-        axios.post("http://localhost:3005/cart/addToCart", { userId: localStorage.getItem("userId"), productId, quantity: 1 })
-            .then(response => {
-                toast.success(response.data.message);
-            }).catch(err => {
-                toast.danger("Already added this product");
-            });
+        const storedUserId = localStorage.getItem('userId');
+        if (storedUserId) {
+            axios.post("http://localhost:3005/cart/addToCart", { userId: localStorage.getItem("userId"), productId, quantity: 1 })
+                .then(response => { 
+                    toast.success(response.data.message);
+                }).catch(err => {
+                    // toast.error("First Fill information");
+                    // toast.error("Already added this product");
+                });
+        }
+        else{
+            toast.error("please SignIn and add items in your cart");
+        }
     }
-
     const navigate = useNavigate();
     const ProductView = (product) => {
         navigate("/ProductView", { state: product });
@@ -39,7 +45,7 @@ const Product = () => {
         <div className="home">
             <div className="containerr d-flex align-items-center justify-content-center flex-wrap">
                 <div className="containerr-inline d-flex align-items-center justify-content-center m-1 flex-wrap" style={{ gap: "0" }}>
-                    {products.map((product, index) => <div key={index}>
+                    {products.map((product,index) => <div key={index}>
                         <div className="remede-box d-flex flex-column align-items-center justify-content-start m-5 text-center">
                             <div className="remede-img m-1"><img src={product.imageUrl} onClick={() => ProductView(product)} alt="..." style={{ height: "100%", width: '100%' }} /></div>
                             <div className="remede-value m-1 d-flex flex-column justify-content-center align-items-center">
