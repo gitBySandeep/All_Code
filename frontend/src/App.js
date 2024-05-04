@@ -1,8 +1,10 @@
-import { Route, Routes } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import UserForgetPassword from "./components/user/ForgetPassword.js";
-import UserLogIn from "./components/user/LogIn.js";
+import "react-toastify/dist/ReactToastify.css";
+import { Route, Routes } from "react-router-dom";
+import UserForgetPassword from "./components/User/ForgetPassword.js";
+import UserLogIn from "./components/User/LogIn.js";
+import DoctorForgetPassword from "./components/DoctorLogin/ForgetPassword.js";
+import DoctorLogIn from "./components/DoctorLogin/LogIn.js";
 import AboutUs from "./components/AboutUs/About.js";
 import Contact from "./components/Contact/Contact.js";
 import Home from "./components/Home/Home.js";
@@ -22,7 +24,7 @@ import Checkout from "./components/Product/CheckOut.js";
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
 import ProductView from "./components/Product/ProductViewMore.js";
-import  DoctorConsultation  from "./components/Doctor/DoctorConsultation/DoctorConsultation.js";
+import DoctorConsultation from "./components/Doctor/DoctorConsultation/DoctorConsultation.js";
 
 function App() {
   return (
@@ -33,7 +35,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/homeremedy/" element={<Homeremedy />} />
           <Route path='/ViewMore' element={<ViewMore />} />
-
           <Route path="/yoga" element={<Yoga />} />
           <Route path='/getstart' element={<GetStart />} />
           <Route path="/product" element={<Product />} />
@@ -42,21 +43,23 @@ function App() {
           <Route path="/disease" element={<Disease />} />
           <Route path="/product" element={<Product />} />
           <Route path="/user" element={<UserLogIn />} />
-          {/* <Route path="/search/:term" element={<SearchItem/>} /> */}
           <Route path="/forgetpassword" element={<UserForgetPassword />} />
+          <Route path="/doctorlogin" element={<DoctorLogIn />} />
+          <Route path="/doctorforgetpassword" element={<DoctorForgetPassword />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
           <Route path="/Consult" element={<Consult />} />
           <Route path="/Appointment" element={<Appointment />} />
           <Route path="/Chatbot" element={<ChatBot />} />
-          {/* <Route path="/appointmentDetails" element={<AppointmentDetails />} /> */}
-          <Route path="/doctorDashboard" element={<DoctorDashboard/>} />
+          <Route path="/doctorDashboard" element={<DoctorDashboard />} />
           <Route path="/viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
           <Route path="/header" element={<Header />} />
-          <Route path="/doctorConsultation" element={<DoctorConsultation/>}/>
+          <Route path="/doctorConsultation" element={<DoctorConsultation />} />
+          {/* <Route path="/search/:term" element={<SearchItem/>} /> */}
+          {/* <Route path="/appointmentDetails" element={<AppointmentDetails />} /> */}
         </Routes>
         <Footer />
       </div>

@@ -55,16 +55,16 @@ const Consult = () => {
                 console.log("Response:", response.data);
                 setSuccessMessage("Message sent successfullly !");
                 setFormData({
-                    name:'',
-                    phone:"",
-                    message:" "
+                    name: '',
+                    phone: "",
+                    message: " "
                 });
                 setShowModal(true);
             })
-            .catch(err=>{
+            .catch(err => {
                 console.log(err);
                 setFailureMessage('Failed to send message. Please try again later.');
-                
+
             })
         // Perform other actions like submitting to backend or navigating
     };
@@ -88,9 +88,8 @@ const Consult = () => {
     };
 
     const back = () => {
-        navigate("/");
-        navigate("/doctorConsult");
-    };
+        navigate(-1)
+    }
 
     return (
         <>
@@ -147,7 +146,7 @@ const Consult = () => {
                     </form>
                 </div>
             </div>
-          
+
         </>
     );
 };
