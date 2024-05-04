@@ -128,7 +128,6 @@ export const update = (request, response, next) => {
             email: request.body.email,
             password: request.body.password,
             contactNumber: request.body.contactNumber,
-            registrationNumber: request.body.registrationNumber
         }, {
         where: { id: request.body.id },
         raw: true
@@ -216,6 +215,7 @@ export const doctorProfile = (request, response, next) => {
             return response.status(500).json({ error: "Internal server error...", err });
         })
 }
+
 
 export const doctorAppointment = (request, response, next) => {
     // const errors = validationResult(request);

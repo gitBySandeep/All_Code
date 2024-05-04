@@ -23,7 +23,6 @@ router.put("/updateProfile",
     body("password", "invalid password").notEmpty(),
     body("doctorName", "invalid name").notEmpty(),
     body("contactNumber", "invalid contactNumber").notEmpty(),
-    body("registrationNumber", "invalid registrationNumber").notEmpty(),
     update);
 
 router.post("/forgotpassword", body("email", "invalid email").isEmail().notEmpty(), forgotpassword);

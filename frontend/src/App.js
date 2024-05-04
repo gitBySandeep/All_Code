@@ -18,11 +18,11 @@ import ViewMore from "./components/Homeremedy/HomeremedyDescription.js";
 import Consult from "./components/Consult/Consult.js";
 import Appointment from "./components/Appointment/Appointment.js";
 import ChatBot from "./components/ChatBot/ChatBot.js";
-import DoctorDashboard from "./components/Doctor/DoctorDashboard/DoctorDashboard.js";
 import Viewcart from "./components/Product/Viewcart.js";
 import Checkout from "./components/Product/CheckOut.js";
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
+import PaymentSuccess from "./components/Product/paymentsuccess.js";
 import ProductView from "./components/Product/ProductViewMore.js";
 import DoctorConsultation from "./components/Doctor/DoctorConsultation/DoctorConsultation.js";
 
@@ -52,10 +52,11 @@ function App() {
           <Route path="/Consult" element={<Consult />} />
           <Route path="/Appointment" element={<Appointment />} />
           <Route path="/Chatbot" element={<ChatBot />} />
-          <Route path="/doctorDashboard" element={<DoctorDashboard />} />
+          {/* <Route path="/doctorDashboard" element={<DoctorDashboard />} /> */}
           <Route path="/viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
+          
           <Route path="/header" element={<Header />} />
           <Route path="/doctorConsultation" element={<DoctorConsultation />} />
           {/* <Route path="/search/:term" element={<SearchItem/>} /> */}
@@ -66,4 +67,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
