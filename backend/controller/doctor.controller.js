@@ -5,6 +5,47 @@ import Appointment from "../model/appointment.model.js";
 import jwt from "jsonwebtoken";
 import User from "../model/user.model.js";
 
+// sed mail with OTP start =================================================================
+
+import nodemailer from 'nodemailer';
+
+// Function to generate a random OTP
+let OTP;
+const generateOTP = () => {
+    const otpLength = 4; // Length of the OTP
+    const digits = '0123456789'; // Possible digits in the OTP
+    OTP = '';
+    for (let i = 0; i < otpLength; i++) {
+        OTP += digits[Math.floor(Math.random() * 10)]; // Randomly select a digit
+    }
+    return OTP;
+};
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user: 'thegreatayurveda@gmail.com', pass: 'mscy bdjt dttl plbj' }
+});
+
+const sendOTP = (receverMail) => {
+    const otp = generateOTP(); // Generate OTP
+    const mailOptions = {
+        from: 'thegreatayurveda@gmail.com',
+        to: `${receverMail}`,
+        subject: 'Your OTP for The Great Ayurveda',
+        text: `Your OTP is: ${otp}` // Include OTP in the email body
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log('Error sending email:', error);
+        } else {
+            console.log('Email sent successfully...');
+        }
+    });
+};
+
+// sed mail with OTP end =================================================================
+
 export const SignUp = (request, response, next) => {
     const errors = validationResult(request);
     if (!errors.isEmpty())
@@ -184,17 +225,19 @@ export const doctorAppointment = (request, response, next) => {
     Appointment.create({
         status: "pending",
         appointmentTime: request.body.appointmentTime,
-        appointmentDate:request.body.appointmentDate,
+        appointmentDate: request.body.appointmentDate,
         doctorId: request.body.doctorId,
-        name:request.body.name,
-        phone:request.body.phone,
-        age:request.body.age,
-        email:request.body.email,
-        gender:request.body.gender,
+        name: request.body.name,
+        phone: request.body.phone,
+        age: request.body.age,
+        email: request.body.email,
+        gender: request.body.gender,
+
+
 
     })
         .then((result) => {
-            return response.status(200).json({ message: "Appointment Saved...." ,result});
+            return response.status(200).json({ message: "Appointment Saved....", result });
         })
         .catch((err) => {
             console.log(err)
@@ -273,14 +316,69 @@ export const doctorConsult = (request, response, next) => {
         attributes: ['doctorName'],
         include: [{
             model: DoctorDetail,
-            attributes: ['doctorId','doctorImage', 'specialization', 'experience', 'qualification', 'clinicAddress', 'gender', 'language']
+            attributes: ['doctorId', 'doctorImage', 'specialization', 'experience', 'qualification', 'clinicAddress', 'gender', 'language']
         }]
     })
-    
+
         .then((result) => {
             return response.status(200).json({ message: 'Status updated....', result })
         })
         .catch(err => {
             return response.status(500).json({ error: "Internal server error...", err });
         });
+}
+
+
+// =================================================================================
+
+export const forgotpassword = (request, response, next) => {
+    const errors = validationResult(request);
+    if (!errors.isEmpty())
+        return response.status(401).json({ error: errors.array() });
+
+    Doctor.findOne({ where: { email: request.body.email } })
+        .then((result) => {
+            if (result) {
+                sendOTP(request.body.email);
+                return response.status(200).json({ message: 'doctor exist....', Message: 'Email sent successfully...' });
+            }
+            else {
+                return response.status(401).json({ message: 'unauthorized request....' })
+            }
+        })
+        .catch((err) => {
+            return response.status(500).json({ error: 'internal server error....', err })
+        })
+}
+
+export const verifyOTP = (request, response, next) => {
+    let otp = request.body.OTP;
+    if (otp == OTP) {
+        return response.status(200).json({ message: 'OTP Verification Successfuly....' })
+    }
+    else {
+        return response.status(401).json({ message: 'OTP Verification failed....' })
+    }
+}
+
+export const setnewpassword = (request, response, next) => {
+    const errors = validationResult(request);
+    if (!errors.isEmpty())
+        return response.status(401).json({ error: errors.array() });
+
+    Doctor.update({
+        password: request.body.password,
+    }, {
+        where: {
+            email: request.body.email
+        }, raw: true
+    })
+        .then((result) => {
+            if (result[0])
+                return response.status(200).json({ message: 'password updated....' })
+            return response.status(401).json({ message: 'unauthorized request....' })
+        })
+        .catch((err) => {
+            return response.status(500).json({ error: 'internal server error....', err })
+        })
 }

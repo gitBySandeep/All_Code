@@ -1,7 +1,7 @@
 import express from 'express';
 import { verifyToken } from '../middleware/auth.js';
 import { body } from 'express-validator';
-import { AddDoctorDetail, SignUp, UpdateDoctorDetail, appointmentList, doctorAppointment, doctorConsult, doctorProfile, list, remove, signIn, update, } from '../controller/doctor.controller.js';
+import { AddDoctorDetail, SignUp, UpdateDoctorDetail, appointmentList, doctorAppointment, doctorConsult, doctorProfile, forgotpassword, list, remove, setnewpassword, signIn, update, verifyOTP, } from '../controller/doctor.controller.js';
 
 const router = express.Router();
 
@@ -24,6 +24,15 @@ router.put("/updateProfile",
     body("doctorName", "invalid name").notEmpty(),
     body("contactNumber", "invalid contactNumber").notEmpty(),
     update);
+
+router.post("/forgotpassword", body("email", "invalid email").isEmail().notEmpty(), forgotpassword);
+
+router.post("/verifyOTP", verifyOTP);
+
+router.put("/setnewpassword",
+    body("email", "invalid email").isEmail().notEmpty(),
+    body("password", "invalid password").notEmpty(),
+    setnewpassword);
 
 router.get("/DoctorList", list);
 
@@ -74,6 +83,6 @@ router.get("/doctorconsult",
     // body("specialization", "invalid specialization").notEmpty(),
     // body("doctorId", "invalid doctorId").notEmpty(),
     doctorConsult);
-    
+
 
 export default router;
