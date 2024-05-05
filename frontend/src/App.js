@@ -23,6 +23,7 @@ import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
 import ProductView from "./components/Product/ProductViewMore.js";
 import  DoctorConsultation  from "./components/Doctor/DoctorConsultation/DoctorConsultation.js";
+import PatientInformation from "./components/Doctor/Patients/Patients.js";
 
 function App() {
   return (
@@ -51,12 +52,16 @@ function App() {
           <Route path="/Appointment" element={<Appointment />} />
           <Route path="/Chatbot" element={<ChatBot />} />
           {/* <Route path="/appointmentDetails" element={<AppointmentDetails />} /> */}
-          <Route path="/doctorDashboard" element={<DoctorDashboard/>} />
+          <Route path="doctorDashboard" element={<DoctorDashboard/>} >
+          <Route path="doctorconsultation" element={<DoctorConsultation/>}/>
+          </Route>
+
+
           <Route path="/viewcart" element={<Viewcart />} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
           <Route path="/header" element={<Header />} />
-          <Route path="/doctorConsultation" element={<DoctorConsultation/>}/>
+          <Route path="/PatientInformation" element={<PatientInformation/>}/>
         </Routes>
         <Footer />
       </div>

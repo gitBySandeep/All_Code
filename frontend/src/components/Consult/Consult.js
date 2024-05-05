@@ -10,6 +10,9 @@ import { MdWorkHistory } from "react-icons/md";
 import "./Consult.css";
 import axios from 'axios';
 
+
+
+
 const Consult = () => {
     const { state } = useLocation();
     console.log(state)
