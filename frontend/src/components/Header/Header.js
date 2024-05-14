@@ -9,7 +9,6 @@ const Header = () => {
     const [diseases, setDiseases] = useState([]);
     const [diseases2, setDiseases2] = useState("");
     const [searchdiseases, setsearchdiseases] = useState([]);
-    const [cartItemList, setCartItemList] = useState([]);
 
     useEffect(() => {
         axios.get("http://localhost:3005/category/list")
@@ -39,20 +38,6 @@ const Header = () => {
             })
     }
 
-    useEffect(() => {
-        const userId = localStorage.getItem("userId");
-        axios.get("http://localhost:3005/cart/fetchCartItems/${userId}")
-            .then(response => {
-                for (let product of response.data.data) {
-                    product.qty = 1;
-                    cartItemList.push(product);
-                }
-                setCartItemList([...cartItemList]);
-            }).catch(err => {
-                console.log(err);
-            })
-    }, []);
-
     const viewcart = () => {
         navigate("/ViewCart");
     }
@@ -79,18 +64,18 @@ const Header = () => {
                             <form className="header-sch me-auto d-flex bg-light position-relative" role="button" style={{ borderRadius: "50px", marginLeft: "17vw", width: "45%" }}>
                                 <input className="form-control me-2 form-control no-border" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" onChange={(event) => { Search(event.target.value); setDiseases2(event.target.value); }} style={{ borderRadius: "50px", border: "none" }} type="text" placeholder="What are you looking for ?" />
                                 <button className="btnn text-white" onClick={() => searchSolution()} style={{ borderRadius: "50px" }} type="button">Search</button>
-                                {(diseases2) ? <ul class="dropdown-menu m-2" style={{ width: "45%" }} aria-labelledby="dropdownMenuButton1">
+                                {(diseases2) ? <ul className="dropdown-menu m-2" style={{ width: "45%" }} aria-labelledby="dropdownMenuButton1">
                                     <li>
                                         {searchdiseases.map((disease, i) => <span key={i}>
                                             <span className="dropdown-item" onClick={() => { Solution(disease); searchinput.value = disease.categoryName; }} style={{ margin: ".5vw" }}>{disease.categoryName}</span>
                                         </span>)}
                                     </li>
-                                </ul> : <ul class="dropdown-menu m-2" style={{ width: "0!importent", display: "none", height: "0" }} aria-labelledby="dropdownMenuButton1">
+                                </ul> : <ul className="dropdown-menu m-2" style={{ width: "0!importent", display: "none", height: "0" }} aria-labelledby="dropdownMenuButton1">
                                     {/* <span>hello</span> */}
                                 </ul>}
                             </form>
                             <ul className="navbar-nav navv d-flex align-items-sta" style={{}}>
-                                {(sessionStorage.getItem('userExist') == 1) ?
+                                {(localStorage.getItem('userId')) ?
                                     <li className="nav-list nav-item dropdown me-5">
                                         <div className="nav-link d-flex align-items-center dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <div className="login-icon"></div>
@@ -98,7 +83,7 @@ const Header = () => {
                                         </div>
                                         <ul className="dropdown-menu">
                                             <li>
-                                                <Link style={{ color: "var(--green)", textDecoration: "none" }} to="/">
+                                                <Link style={{ color: "var(--green)", textDecoration: "none" }} to="/userprofile">
                                                     <div className="dropdown-item d-flex align-items-center bg-white" style={{ color: "var(--green)" }}>
                                                         <div className="login-user"></div>
                                                         <span className="login-texth ms-2">MyProfile</span>
@@ -116,7 +101,7 @@ const Header = () => {
                                             </li>
                                             <li> <hr className="dropdown-divider" /></li>
                                             <li>
-                                                <Link style={{ color: "var(--green)", textDecoration: "none", cursor: "pointer" }} to="/">
+                                                <Link style={{ color: "var(--green)", textDecoration: "none", cursor: "pointer" }} to="/ViewCart">
                                                     <div className="dropdown-item d-flex align-items-center bg-white" style={{ color: "var(--green)" }}>
                                                         <div className="login-cart"></div>
                                                         <span className="login-texth ms-2">Cart</span>
@@ -125,7 +110,7 @@ const Header = () => {
                                             </li>
                                             <li> <hr className="dropdown-divider" /></li>
                                             <li>
-                                                <Link style={{ color: "var(--green)", textDecoration: "none" }} onClick={() => sessionStorage.setItem('userExist', 0)}>
+                                                <Link style={{ color: "var(--green)", textDecoration: "none" }} onClick={() => { localStorage.removeItem('userId'); localStorage.removeItem('userData') }} to="/">
                                                     <div className="dropdown-item d-flex align-items-center bg-white" style={{ color: "var(--green)" }}>
                                                         <div className="login-logout"></div>
                                                         <span className="login-texth ms-2">Logout</span>
@@ -190,7 +175,7 @@ const Header = () => {
                                 <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/product">Products</Link></li>
                                 <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/yoga">Yoga</Link></li>
                                 <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/homeremedy">Homeremedies</Link></li>
-                                <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/aboutUs">About Us</Link></li>
+                                <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/aboutUs">AboutUs</Link></li>
                                 <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/doctorconsult">Doctor</Link></li>
                                 <li className="nav-item loginheader"><Link className="nav-link" style={{ color: "var(--white)" }} to="/contact">Contact</Link></li>
                             </ul>

@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
-import GoogleSign from '../googleAuth.js';
+import { ToastContainer, toast } from "react-toastify";
 
 export default function LogIn() {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -31,16 +30,28 @@ export default function LogIn() {
         axios.post("http://localhost:3005/doctor/signin", { email, password })
             .then(response => {
                 if (response.status === 200) {
-                    console.log(response.data)
                     localStorage.setItem("doctorId", response.data.doctor.id);
                     toast.success("Sign In Success....");
-                    sessionStorage.setItem('doctorExist', 1);
-                    navigate("/");
+                    checkDoctorDetails();
                 }
             }).catch(err => {
-                alert(err.code)
                 console.log(err);
                 toast.error("Invelid name password....");
+            });
+    }
+
+    const checkDoctorDetails = () => {
+        axios.post("http://localhost:3005/doctor/doctorProfile", { id: (localStorage.getItem("doctorId")) })
+            .then(response => {
+                if (response.status === 200) {
+                    toast.info("doctor details are exist...");
+                    navigate("/doctorDashboard");
+                }
+                console.log(response);
+            }).catch(err => {
+                console.log(err);
+                toast.info("fill the doctor details...catch");
+                navigate("/doctorvarication");
             });
     }
 
@@ -48,12 +59,10 @@ export default function LogIn() {
         axios.post("http://localhost:3005/doctor/signup", { email, password, doctorName, contactNumber, registrationNumber })
             .then(response => {
                 if (response.status === 200) {
-                    alert(response.data.message)
                     toast.success("Sign Up Success....");
                     toggleForm();
                 }
             }).catch(err => {
-                alert(err.code)
                 console.log(err);
                 toast.error("Email is Already exist...");
             })
@@ -103,6 +112,7 @@ export default function LogIn() {
 
     return (
         <div>
+            <ToastContainer />
             <div className='login'>
                 <div className={` containe ${isSignUp ? 'active' : ''}`}>
                     <div className="form-container sign-up ">
@@ -126,7 +136,7 @@ export default function LogIn() {
                             <small className='signin-input-message'>{msgcontactNumber}</small>
                             <input className='signin-password' onChange={(event) => { (event.target.value === "") ? setmsgregistrationNumber("registration number is required") : (!event.target.value.match(/^[0-9]+$/)) ? setmsgregistrationNumber("registration number must contain only digits.") : setmsgregistrationNumber(""); setregistrationNumber(event.target.value); }} type="tel" placeholder="Registration Number" />
                             <small className='signin-input-message'>{msgregistrationNumber}</small>
-                            {(msgdoctorName === msgemail && msgemail === msgpassword && msgpassword === msgcontactNumber && msgcontactNumber === msgregistrationNumber) ? <button onClick={signUp}>Sign Up</button> : <button onClick={() => alert("please fill the all information")} style={{ background: "var(--green-3)" }}>Sign Up</button>}
+                            {(msgdoctorName === msgemail && msgemail === msgpassword && msgpassword === msgcontactNumber && msgcontactNumber === msgregistrationNumber) ? <button onClick={signUp}>Sign Up</button> : <button onClick={() => toast.error("please fill the all information")} style={{ background: "var(--green-3)" }}>Sign Up</button>}
                             <div className="googleloginicon mt-3" onClick={login}></div>
                         </form>
                     </div>
@@ -145,7 +155,7 @@ export default function LogIn() {
                             <input className='signin-password' onChange={(event) => { (event.target.value === "") ? setmsgPassword2("password is required") : setmsgPassword2(""); setPassword(event.target.value); }} type="password" placeholder="Password" />
                             <small className='signin-input-message'>{msgpassword2}</small>
                             <Link className="ml-3 links " to="/doctorforgetpassword">→ Forget Your Password? ←</Link>
-                            {(msgemail === msgpassword2) ? <button onClick={signIn}>Sign In</button> : <button onClick={() => alert("please fill the all information")} style={{ background: "var(--green-3)" }}>Sign In</button>}
+                            {(msgemail === msgpassword2) ? <button onClick={signIn}>Sign In</button> : <button onClick={() => toast.error("please fill the all information")} style={{ background: "var(--green-3)" }}>Sign In</button>}
                             <div className="googleloginicon mt-3" onClick={login}></div>
                         </form>
                     </div>
@@ -165,7 +175,6 @@ export default function LogIn() {
                             </div>
                         </div>
                     </div>
-                    <ToastContainer className="toast" />
                 </div >
             </div >
         </div >

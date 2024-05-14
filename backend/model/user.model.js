@@ -32,6 +32,21 @@ const User = sequelize.define("user", {
         type: DataTypes.STRING(10),
         allowNull: false,
         unique: true
+    },
+    gender: {
+        type: DataTypes.STRING,
+    },
+    state: {
+        type: DataTypes.STRING,
+    },
+    city: {
+        type: DataTypes.STRING,
+    },
+    address: {
+        type: DataTypes.STRING,
+    },
+    pincode: {
+        type: DataTypes.STRING,
     }
 });
 
