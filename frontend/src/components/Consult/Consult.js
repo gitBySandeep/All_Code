@@ -12,6 +12,9 @@ import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 
 
+
+
+
 const Consult = () => {
     const { state } = useLocation();
     console.log(state)

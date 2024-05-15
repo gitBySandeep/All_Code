@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaUserDoctor } from "react-icons/fa6";
 import './DoctorDashboard.css'
+import { Link, Outlet } from "react-router-dom";
 
 
 const DoctorDashboard = () => {
@@ -17,6 +18,7 @@ const DoctorDashboard = () => {
                 console.log(err);
             })
     }, []);
+    
 
     return <>
 
@@ -51,7 +53,9 @@ const DoctorDashboard = () => {
                                                     <li className="border shadow-lg p-3  bg-body rounded px-5 ">Dashboard</li>
                                                     <li className="border shadow-lg p-3  bg-body rounded px-5 ">Appointments</li>
                                                     <li className="border shadow-lg p-3  bg-body rounded  px-5">My Patients</li>
+                                                    <Link to="doctorconsultation">
                                                     <li className="border shadow-lg p-3  bg-body rounded  px-5">Consult</li>
+                                                    </Link>
                                                     <li className="border shadow-lg p-3  bg-body rounded px-5">Profile Setting</li>
                                                     <li className="border shadow-lg p-3  bg-body rounded px-5">LogOut</li>
                                                 </ul>
@@ -63,7 +67,10 @@ const DoctorDashboard = () => {
                         ))}
                     </div>
                     <div className="col-8">
-
+                        {/* <Link to="">
+                        
+                        </Link> */}
+                        <Outlet/>
                     </div>
                 </div>
             </div>
