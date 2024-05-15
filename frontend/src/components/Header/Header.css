@@ -32,10 +32,6 @@
     font-weight: 700;
 }
 
-.header-sch {
-    box-shadow: 0 0 10px var(--gray);
-}
-
 .login-user {
     height: 30px;
     width: 30px;
@@ -105,7 +101,7 @@
     }
 
     .headernav {
-        height: 118px !important;
+        height: 60px !important;
     }
 
     .nav-li {
