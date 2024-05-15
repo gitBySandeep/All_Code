@@ -19,7 +19,7 @@ const Footer = () => {
                             <small className="footer-values links ps-3">Our Story</small>
                             <small className="footer-values links ps-3">Blogs</small>
                             <small className="footer-values links ps-3">Ingredients Index</small>
-                            <small className="footer-values links ps-3">Hotel & Spa</small>
+                            <small className="footer-values links ps-3">clinin & hospitals</small>
                             <small className="footer-values links ps-3">Media</small>
                         </div>
                         <div className="footer-account  d-flex flex-column p-3">

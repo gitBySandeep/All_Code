@@ -50,7 +50,7 @@ router.post("/addDoctordetail",
     body("doctorId", "invalid doctorId").notEmpty(),
     AddDoctorDetail);
 
-router.get("/doctorProfile", body("id", "invalid id").notEmpty(), doctorProfile);
+router.post("/doctorProfile", body("id", "invalid id").notEmpty(), doctorProfile);
 
 router.put("/updateDoctordetail",
     body("id", "invalid id").notEmpty(),

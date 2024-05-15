@@ -4,6 +4,7 @@ import DoctorDetail from "../model/doctordetail.model.js";
 import Appointment from "../model/appointment.model.js";
 import jwt from "jsonwebtoken";
 import User from "../model/user.model.js";
+import sequelize from "../db/dbConfig.js";
 
 // sed mail with OTP start =================================================================
 
@@ -202,9 +203,9 @@ export const doctorProfile = (request, response, next) => {
     if (!errors.isEmpty())
         return response.status(401).json({ error: errors.array() });
 
-    Doctor.findOne({
-        where: { id: request.body.id },
-        include: [{ model: DoctorDetail, required: true }]
+    DoctorDetail.findOne({
+        where: { doctorId: request.body.id },
+        include: [{ model: Doctor, required: true }]
     })
         .then((result) => {
             if (result)
@@ -306,25 +307,44 @@ export const updateAppointmentStatus = (request, response, next) => {
         })
 
 }
+// export const doctorConsult = (request, response, next) => {
+//     const errors = validationResult(request);
+//     if (!errors.isEmpty()) {
+//         console.log("DoctorConsult");
+//         return response.status(401).json({ error: errors.array() });
+//     }
+//     Doctor.findAll({
+//         // , include: [{ model: Product, required: true }, { model: HomeRemedy, required: true }, { model: Yoga, required: true }]
+//         include: [{ model: DoctorDetail, required: true, attributes: ['doctorId', 'doctorImage', 'specialization', 'experience', 'qualification', 'clinicAddress', 'gender', 'language'] }]
+//     })
+
+//         .then((result) => {
+//             return response.status(200).json({ message: 'Status updated....', result })
+//         })
+//         .catch(err => {
+//             return response.status(500).json({ error: "Internal server error...", err });
+//         });
+// }
+
 export const doctorConsult = (request, response, next) => {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
         console.log("DoctorConsult");
         return response.status(401).json({ error: errors.array() });
     }
-    Doctor.findAll({
-        attributes: ['doctorName'],
-        include: [{
-            model: DoctorDetail,
-            attributes: ['doctorId', 'doctorImage', 'specialization', 'experience', 'qualification', 'clinicAddress', 'gender', 'language']
-        }]
-    })
 
+    DoctorDetail.findAll({
+        include: [{ model: Doctor }]
+    })
         .then((result) => {
-            return response.status(200).json({ message: 'Status updated....', result })
+            if (!result) {
+                return response.status(404).json({ error: "No data found" });
+            }
+            return response.status(200).json({ message: 'Doctors and details found', result });
         })
         .catch(err => {
-            return response.status(500).json({ error: "Internal server error...", err });
+            console.error("Error:", err);
+            return response.status(500).json({ error: "Internal server error..." });
         });
 }
 

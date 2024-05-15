@@ -7,9 +7,9 @@ const Order = sequelize.define("Order", {
         primaryKey: true,
         autoIncrement: true
     },
-    FullName:{
-        type:DataTypes.STRING,
-        allowNull:false
+    FullName: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     OrderDate: {
         type: DataTypes.STRING,
@@ -43,11 +43,11 @@ const Order = sequelize.define("Order", {
         type: DataTypes.STRING,
         allowNull: false
     },
-    userId:{
-        type:DataTypes.INTEGER,
-        allowNull:false
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
-    
+
 });
 
 
