@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
 import { IoLocationOutline } from "react-icons/io5";
 import { FaGraduationCap } from "react-icons/fa";
 import { LiaLanguageSolid } from "react-icons/lia";
