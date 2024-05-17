@@ -23,6 +23,8 @@ import Footer from "./components/Footer/Footer.js";
 import PaymentSuccess from "./components/Product/paymentsuccess.js";
 import ProductView from "./components/Product/ProductViewMore.js";
 import  DoctorConsultation  from "./components/Doctor/DoctorConsultation/DoctorConsultation.js";
+import DocterProfile from "./components/docterdashboard/patientsetting.js";
+import Buynow from "./components/Product/Buynow.js";
 
 function App() {
   return (
@@ -52,9 +54,10 @@ function App() {
           <Route path="/Chatbot" element={<ChatBot />} />
           {/* <Route path="/appointmentDetails" element={<AppointmentDetails />} /> */}
           <Route path="/viewcart" element={<Viewcart />} />
+          <Route path="/Buynow" element={<Buynow/>} />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/doctorconsult" element={<DoctorConsult />} />
-          
+          <Route path="/DocterProfile" element={<DocterProfile/>}/>
           <Route path="/header" element={<Header />} />
           <Route path="/doctorConsultation" element={<DoctorConsultation/>}/>
         </Routes>

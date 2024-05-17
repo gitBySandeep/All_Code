@@ -4,8 +4,11 @@ import Footer from "../Footer/Footer";
 import './ProductViewMore.css';
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 export default function ProductView() {
     const { state } = useLocation();
+    const navigate = useNavigate();
     const rat = [1, 2, 3, 4, 5]
 
     const addToCart = (productId) => {
@@ -13,8 +16,17 @@ export default function ProductView() {
             .then(response => {
                 toast.success(response.data.message);
             }).catch(err => {
-                toast.danger("Already added this product");
+                toast.error("Already added this product");
             });
+    }
+
+    const Buynow = (product) => {
+        if (localStorage.getItem("userId")) {
+            navigate("/Buynow", { state: product });
+        }
+        else {
+            toast.error("please SignIn and add items in your cart");
+        }
     }
 
     return <>
@@ -35,7 +47,7 @@ export default function ProductView() {
                     <span className="rmm remedydata mt-2 fs-6 ">{state.description}</span>
                     <div className="rmm d-flex justify-content-start">
                         <button onClick={() => addToCart(state.id)} className="btnn addtocart-btn text-white m-2">Add To cart</button>
-                        <button className="btnn buynow-btn text-white m-2">Buy Now</button>
+                        <button className="btnn buynow-btn text-white m-2"onClick={() => Buynow(state)}>Buy Now</button>
                     </div>
                 </div>
             </div>
