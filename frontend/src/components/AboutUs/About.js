@@ -30,7 +30,7 @@ export default function AboutUs() {
       {/* SECOND SECTION */}
       <div className="container border broder-dark">
         <div className="row d-flex align-items-center">
-          <div classname="col-12">
+          <div className="col-12">
             <div className="text-center mb-3 mt-3 HistoryofAyurveda">
               <h1 className="border-bottom border-2 border-dark d-inline pb-1">
                 History of Ayurveda
@@ -80,7 +80,7 @@ export default function AboutUs() {
               <div className="col-md-12 text-center mt-3 mb-3">
                 <FaHeart style={{ color: "rgb(86, 142, 86)" }} size={50} />
                 <br></br>
-                <spna className="mt-2 d-block">Promise of Ayurveda</spna>
+                <span className="mt-2 d-block">Promise of Ayurveda</span>
               </div>
             </div>
             <div className="shadow p-3 mb-5" id="history_box">
@@ -105,7 +105,7 @@ export default function AboutUs() {
               <div className="col-md-12 text-center  mt-3 mb-3">
                 <FaLeaf style={{ color: "rgb(86, 142, 86)" }} size={50} />
                 <br></br>
-                <spna className="mt-2 d-block">Responsible Sourcing</spna>
+                <span className="mt-2 d-block">Responsible Sourcing</span>
               </div>
             </div>
             <div className="shadow p-3 mb-5" id="history_box">
@@ -130,7 +130,7 @@ export default function AboutUs() {
               <div className="col-md-12 text-center mt-3 mb-3">
                 <IoMdDoneAll style={{ color: "rgb(86, 142, 86)" }} size={50} />
                 <br></br>
-                <spna className="mt-2 d-block">Promise of Ayurveda</spna>
+                <span className="mt-2 d-block">Promise of Ayurveda</span>
               </div>
             </div>
             <div className="shadow p-3 mb-" id="history_box">
@@ -150,7 +150,7 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-   
+
     </>
   );
 }

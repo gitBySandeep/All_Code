@@ -1,10 +1,8 @@
 
 import { useLocation, useNavigate } from "react-router-dom"
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useState } from 'react'
 import axios from "axios";
 import { BsCurrencyRupee } from "react-icons/bs";
-import Header from "../Header/Header";
-import Viewcart from "./Viewcart";
 import { ToastContainer, toast } from "react-toastify";
 
 let userId = localStorage.getItem("userId")
@@ -186,8 +184,6 @@ function Checkout() {
                             <button className='btn  mt-2 text-white' style={{ background: "var(--green)" }} onClick={() => PlaceOrder(totalBillAmount)}>Proceed to Pay</button>
                         </div>
                     </div>
-                    {/* {(FullName2 === State1 && State1 === City2 && City2 === UserContact2 && UserContact2 === Address2  && Address2 === Pincode2) ? <button onClick={() => PlaceOrder(totalBillAmount)} className='btn  mt-2 text-white' style={{ background: "var(--green)" }}>Proceed to Pay</button> : <button onClick={() => { (FullName === "") ? setFullName2("name is required") : (State === "") ? setState1("State is required") : (City === "") ? setCity2("City is required") : (UserContact === "") ? setContact2("number is required") : (Address === "") ? setAddress2("Address is required") : (Pincode === "") ? setPincode2("pincode is required") : setPincode(" ")}} >Proceed to Pay</button>}                         */}
-
                 </div>
                 <div id='checkout-right' className='border col-md-4'>
                     <div className='text-white rounded mt-2 container d-flex justify-content-center align-items-center p-2' style={{ background: "var(--green)" }}>

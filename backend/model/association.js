@@ -28,7 +28,6 @@ orderItem.belongsTo(Order, { foreignKey: "orderId", targetKey: "id" });
 
 // product
 
-// product
 Product.hasMany(orderItem, { foreignKey: "id" });
 orderItem.belongsTo(Product, { foreignKey: "productId", targetKey: "id", onDelete: 'CASCADE' });
 
@@ -54,3 +53,4 @@ Cart.belongsToMany(Product, { through: CartItems });
 Product.belongsToMany(Cart, { through: CartItems });
 
 export { Category, Product, User, Cart, CartItems, HomeRemedy, Yoga, Doctor, DoctorDetail, Order, orderItem, Appointment };
+

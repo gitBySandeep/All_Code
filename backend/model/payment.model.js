@@ -3,43 +3,43 @@ import sequelize from "../db/dbConfig.js";
 // import Order from "./order.model.js";
 
 
-const payment = sequelize.define('payment',{
-    id:{
+const payment = sequelize.define('payment', {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    paymentmethod:{
+    paymentmethod: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull: false
     },
-    paymentdate:{
+    paymentdate: {
         type: DataTypes.STRING,
-        allowNull:true
+        allowNull: true
     },
-    PaymentAmount:{
-        type:DataTypes.DECIMAL(10,2),
-        allowNull:false
+    PaymentAmount: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false
     },
-    transactionID:{
-        type:DataTypes.STRING,
-        allowNull:false
+    transactionID: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    status:{
-        type:DataTypes.STRING,
-        allowNull:false
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 })
 
 
 
 payment.sync()
-.then(()=>{
-    console.log("payment table created.....");
-})
-.catch(err=>{
-    console.log(err);
-})
+    .then(() => {
+        console.log("payment table created.....");
+    })
+    .catch(err => {
+        console.log(err);
+    })
 
 
 export default payment;

@@ -19,19 +19,33 @@ const User = sequelize.define("user", {
         allowNull: false,
         unique: true
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        set(value) {
-            let saltkey = bcyrpt.genSaltSync(10);
-            let encryptedPassword = bcyrpt.hashSync(value, saltkey);
-            this.setDataValue("password", encryptedPassword);
+    password:{
+        type: String,
+        trim: true,
+        set: function(password){
+            let saltKey = bcrypt.genSaltSync(10);
+            return bcrypt.hashSync(password,saltKey);
         }
     },
     contactNumber: {
         type: DataTypes.STRING(10),
         allowNull: false,
         unique: true
+    },
+    gender: {
+        type: DataTypes.STRING,
+    },
+    state: {
+        type: DataTypes.STRING,
+    },
+    city: {
+        type: DataTypes.STRING,
+    },
+    address: {
+        type: DataTypes.STRING,
+    },
+    pincode: {
+        type: DataTypes.STRING,
     }
 });
 
@@ -39,11 +53,9 @@ User.checkPassword = (originalPassword, encryptedPassword) => {
     console.log("check Password called....");
     return bcyrpt.compareSync(originalPassword, encryptedPassword);
 }
+
 User.hasMany(Order, { foreignKey: 'userId', targetKey: 'id' }); // A user can have many orders
 Order.belongsTo(User, { foreignKey: 'userId', targetKey: 'id' }); // An order belongs to a user
-
-
-
 
 sequelize.sync()
     .then(() => {
@@ -54,6 +66,5 @@ sequelize.sync()
         console.log(err);
     });
 
-// Define the association between User and Order
 
 export default User;

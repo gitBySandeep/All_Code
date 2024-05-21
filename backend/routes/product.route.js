@@ -5,12 +5,12 @@ import { body } from "express-validator";
 const router = express.Router();
 
 router.post("/addProduct",
-    body("title", "invalid title").notEmpty(),
-    body("brand", "invalid brand").notEmpty(),
-    body("price", "invalid price").notEmpty(),
-    body("description", "invalid description").notEmpty(),
-    body("imageUrl", "invalid imageUrl").notEmpty(),
-    body("categoryname", "invalid categoryname").notEmpty(),
+    // body("title", "invalid title").notEmpty(),
+    // body("brand", "invalid brand").notEmpty(),
+    // body("price", "invalid price").notEmpty(),
+    // body("description", "invalid description").notEmpty(),
+    // body("imageUrl", "invalid imageUrl").notEmpty(),
+    // body("categoryname", "invalid categoryname").notEmpty(),
     Add);
 router.post("/addinbulk", saveInBulk);
 

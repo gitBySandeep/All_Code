@@ -50,8 +50,6 @@ const Appointment = sequelize.define('appointment', {
         allowNull: false
     }
     
-
-
 });
 
 

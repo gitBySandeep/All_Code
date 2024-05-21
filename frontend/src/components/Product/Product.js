@@ -1,8 +1,6 @@
-import "./Product.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import ProductView from "./ProductViewMore";
 import { useNavigate } from "react-router-dom";
 
 const Product = () => {
@@ -17,14 +15,12 @@ const Product = () => {
     }, []);
 
     const addToCart = (productId) => {
-        const storedUserId = localStorage.getItem('userId');
-        if (storedUserId) {
+        if (localStorage.getItem('userId')) {
             axios.post("http://localhost:3005/cart/addToCart", { userId: localStorage.getItem("userId"), productId, quantity: 1 })
                 .then(response => {
                     toast.success(response.data.message);
                 }).catch(err => {
-                    // toast.error("First Fill information");
-                    // toast.error("Already added this product");
+                    toast.error("Already added this product");
                 });
         }
         else {
@@ -36,44 +32,22 @@ const Product = () => {
         navigate("/ProductView", { state: product });
     }
 
-    const Buynow = (product) => {
-        if (localStorage.getItem("userId")) {
-            navigate("/Buynow", { state: product });
-        }
-        else {
-            toast.error("please SignIn and add items in your cart");
-        }
-    }
-    //     const addToCart  = (productId)=>{
-    //         navigate("/addToCart",{state:productId})  
-    //    }
-
     return (<>
         <ToastContainer />
-        <div className="home">
-            <div className="containerr d-flex align-items-center justify-content-center flex-wrap">
-                <div className="containerr-inline d-flex align-items-center justify-content-center m-1 flex-wrap" style={{ gap: "0" }}>
-                    {products.map((product, index) => <div key={index}>
-                        <div className="remede-box d-flex flex-column align-items-center justify-content-start m-5 text-center">
-                            <div className="remede-img m-1"><img src={product.imageUrl} onClick={() => ProductView(product)} alt="..." style={{ height: "100%", width: '100%' }} /></div>
-                            <div className="remede-value m-1 d-flex flex-column justify-content-center align-items-center">
-                                <span className="fs-5 fw-bold ms-2 me-2">{product.title.slice(0, 25)}</span>
-                                <span className="fs-5 fw-bold ms-2 me-2" style={{ color: "var(--green)" }}>{product.price} Rs</span>
-                                <span className="d-flex flex-wrap m-2">{product.description.slice(0, 100)}</span>
-                                <div className="w-100 d-flex align-items-center justify-content-center">
-                                    {products.map((r, i) => <div key={i} className="d-flex">
-                                        {i < product.rating ? <span className="product-reting text-center m-2"></span> : ""}
-                                    </div>)}
-                                </div>
-                                <div className="d-flex justify-content-evenly w-100">
-                                    <button className="btnn addtocart-btn text-white m-2" onClick={() => addToCart(product.id)}  >Add To cart</button>
-                                    <button className="btnn buynow-btn text-white m-2" onClick={() => Buynow(product)}>Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>)}
+        <div className="mt-3 d-flex align-items-top justify-content-evenly gap-5 flex-wrap overflow-hidden" style={{ background: "var(--white)" }}>
+            {products.map((product, index) => <div key={index} className="mb-4 mt-1 card shadow" id="view_hover" style={{ width: "18rem" }}>
+                <img src={product.imageUrl} style={{ height: "200px", cursor: "pointer" }} onClick={() => ProductView(product)} className="ms-1 remede-img card-img-top p-1" alt="..." />
+                <i className="youtube-icon bg-white text-dark w-25 view pt-1" >ViewMore</i>
+                <div className="card-body m-0 p-1 px-3">
+                    <h4 className="card-title fs-6 fw-bold p-0 m-0">{product.title.slice(0, 25)}</h4>
+                    <h4 className="card-title fs-6 fw-bold p-0 m-0" style={{ color: "var(--green)" }}>{product.price} Rs</h4>
+                    <p className="card-text p-0 m-0 mt-2" style={{ fontSize: "0.7rem" }}>{product.description.slice(0, 100)}</p>
+                    <div className="d-flex justify-content-around p-0 my-2">
+                        <button style={{ fontSize: ".8rem" }} className="btnn addtocart-btn p-0 m-0 py-2 px-0" onClick={() => addToCart(product.id)}>Add To cart</button>
+                        <button style={{ fontSize: ".8rem" }} className="btnn buynow-btn text-white m-0 p-0 py-2 px-0">Buy Now</button>
+                    </div>
                 </div>
-            </div>
+            </div>)}
         </div>
     </>);
 };
