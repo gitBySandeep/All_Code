@@ -1,16 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-// import { useLocation } from "react-router-dom"
-import Header from "../Header/Header";
-// import './viewcart.css'
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { BsCurrencyRupee } from "react-icons/bs";
-// import { AiFillLock, AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import Checkout from "./CheckOut";
-import "./Viewcart.css"
-
 export default () => {
 
     const [cartItemList, setCartItemList] = useState([]);
@@ -24,14 +17,13 @@ export default () => {
             .then(response => {
                 for (let product of response.data.data) {
                     product.qty = 1;
-
                     totalBillAmount = totalBillAmount + product["products.price"] * product["products.cartItem.quantity"];
                     cartItemList.push(product);
                 }
                 setCartItemList([...cartItemList]);
                 settotalBillAmount(totalBillAmount);
             }).catch(err => {
-                console.log(err);
+                console.log("raj", err);
             })
     }, []);
 
@@ -41,15 +33,12 @@ export default () => {
                 let product = cartItemList[index];
                 product.qty = quantity;
                 totalBillAmount = 0;
-                // discountPrice = 0;
                 cartItemList.splice(index, 1);
                 cartItemList.splice(index, 0, product);
                 setCartItemList([...cartItemList]);
                 for (let productItem of cartItemList) {
                     totalBillAmount = totalBillAmount + productItem["products.price"] * productItem.qty * 1;
-                    // discountPrice = discountPrice + ((((pars eInt(product["products.discountPercentage"] * product["products.price"]) / 100)) * productItem.qty).toFixed(2) * 1);
                 }
-                // setDiscountPrice(discountPrice)
                 settotalBillAmount(totalBillAmount);
             }).catch(err => {
                 console.log(err);
@@ -60,7 +49,6 @@ export default () => {
         if (window.confirm("Are you sure ?")) {
             totalBillAmount -= price;
             settotalBillAmount(totalBillAmount)
-            // discountPrice = 0;
             let userId = localStorage.getItem("userId");
             axios.delete(`http://localhost:3005/cart/removeCartItem/${userId}/${productId}`)
                 .then(response => {
@@ -82,13 +70,6 @@ export default () => {
 
     return <>
         <ToastContainer />
-        {/* <Header className="fixed-top position-absolute top-0" cartItemList={cartItemList} /> */}
-
-        {/* <hr /> */}
-        {/* <div className="container">
-      <button onClick={() => navigate("/")} className="btn btn-info " style={{height:"40px", width:"130px", color:"white" ,background:"var(--green)"}}>Back</button>
-    </div> */}
-        {/* <h5 className="container" style={{marginLeft:"620px"}}>My Cart Product    ({cartItemList.length})</h5> */}
         <div className="d-flex justify-content-around align-items-center my-5">
             {
                 cartItemList.length !== 0 ? (
@@ -109,7 +90,7 @@ export default () => {
                             {cartItemList.map((product, index) =>
                                 <div className="row container m-0 p-0">
                                     <div className="col-md-2 float-end center-div justify-content-end align-items-end d-flex">
-                                        <img className="m-auto p-3" src={product["products.imageUrl"]} width="180px" height="180px" alt="abc" />
+                                        <img className="m-auto p-3" src={product["products.imageUrl"]} width="180px" height="180px" alt="..." />
                                     </div>
                                     <div className="col-md-3 justify-content-center align-items-center d-flex">
                                         <h6 className="mt-2 text-uppercase" style={{ fontSize: "17px" }}>{product["products.title"]} , </h6>
@@ -124,7 +105,6 @@ export default () => {
                                     </div>
                                     <div className="col-md-2 flex-column d-flex justify-content-center align-content-center">
                                         <button className="m-2 btn btn-outline-danger" onClick={() => removeFromCart((product["products.price"] * product["products.cartItem.quantity"]), index, product["products.id"])} style={{ cursor: "pointer" }}>Remove</button>
-                                        {/* <span  onClick={() => CheckOut(cartItemList,totalBillAmount)}></span> */}
                                     </div>
                                 </div>
                             )}
@@ -143,7 +123,7 @@ export default () => {
                 ) : (
                     <div className='container-fluid d-flex p-4 justify-content-center align-content-center ' id='blackCart'>
                         <div>
-                            <img width={'450px'} height={'300px'} src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png" />
+                            <img width={'450px'} height={'300px'} src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png" alt="..."/>
                             <h6 className='text-center'>Your cart is empty!</h6>
                             <p className='text-center m-2'>Add item to it now</p>
                             <center> <Link to="/Product"><button className='btn btn-primary' style={{ width: '200px', background: " var(--green)" }}>Shop Now</button> </Link></center>

@@ -9,20 +9,20 @@ export default function GetStart() {
     }
 
     return <>
-        <div className="rmm mt-3 mb-4 ">
-            <div className=" rmm d-flex align-items-start justify-content-evenly m-5 mt-2 p-3 flex-wrap ">
-                <div className="rmm d-flex flex-column ">
-                    <div className="rmm remedyimg" style={{ height: "400px", width: "600px" }}>
-                        <ReactPLayer url={state.videoUrl} style={{ height: "100%", width: '100%' }} volume={0.8} />
-                    </div>
-                    <span className="rmm text-center fs-2 mt-3 mb-3 " >{state.yogaName}</span>
+        <div class="card container-fluid my-3">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <ReactPLayer url={state.videoUrl} controls={true} width="100%" volume={0.8} />
                 </div>
-                <div className="rmm remedydata ms-4 d-flex flex-column " style={{ width: "600px" }}>
-                    <span className="rmm fs-4">Benefits of {state.yogaName}</span>
-                    <span className="rmm mt-2">{state.benefits}</span>
-                    <span className="rmm mt-2 fs-4">Instructions of {state.yogaName}</span>
-                    <span className="rmm mt-2">{state.instructions}</span>
-                    <button onClick={back} className="btnn text-white m-2">Back</button>
+                <div class="col-md-7">
+                    <div class="card-body m-0 p-0">
+                        <h5 class="card-title m-0 p-0 fs-4">{state.yogaName}</h5>
+                        <p class="card-text m-0 p-0 mt-3">Benefits of {state.yogaName}</p>
+                        <p class="card-text m-0 p-0"><small class="text-muted">{state.benefits}</small></p>
+                        <p class="card-text m-0 p-0 mt-3">Instructions of {state.yogaName}</p>
+                        <p class="card-text m-0 p-0"><small class="text-muted">{state.instructions}</small></p>
+                        <button onClick={back} className="btnn text-white mt-3">Back</button>
+                    </div>
                 </div>
             </div>
         </div>

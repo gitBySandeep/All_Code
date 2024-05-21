@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
 import { IoLocationOutline } from "react-icons/io5";
 import { FaGraduationCap } from "react-icons/fa";
 import { LiaLanguageSolid } from "react-icons/lia";
@@ -9,16 +7,23 @@ import { FaUserDoctor } from "react-icons/fa6";
 import { MdWorkHistory } from "react-icons/md";
 import "./Consult.css";
 import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
+
+
+
+
 
 const Consult = () => {
     const { state } = useLocation();
     console.log(state)
     const navigate = useNavigate();
+    const doctorId=localStorage.getItem("doctorId");
 
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
-        message: ''
+        message: '',
+        doctorId:localStorage.getItem("doctorId")
     });
     const [successMessage, setSuccessMessage] = useState('');
     const [failureMessage, setFailureMessage] = useState('');
@@ -49,24 +54,26 @@ const Consult = () => {
         }
 
         // Logging form data
-        console.log('Form Data:', formData);
-        axios.post("http://localhost:3005/consult/addconsult", { formData })
+        // console.log('Form Data:', formData);
+        axios.post("http://localhost:3005/consult/doctorConsultData", { formData,doctorid:doctorId })
             .then(response => {
                 console.log("Response:", response.data);
                 setSuccessMessage("Message sent successfullly !");
+                toast.success("Message sent successfullly !");
                 setFormData({
-                    name:'',
-                    phone:"",
-                    message:" "
+                    name: '',
+                    phone: "",
+                    message: " ",
+                    doctorId:localStorage.getItem("doctorId")
                 });
                 setShowModal(true);
             })
-            .catch(err=>{
+            .catch(err => {
                 console.log(err);
                 setFailureMessage('Failed to send message. Please try again later.');
-                
+                toast.error('Failed to send message. Please try again later.');
+
             })
-        // Perform other actions like submitting to backend or navigating
     };
 
     const validateFormData = (data) => {
@@ -88,30 +95,30 @@ const Consult = () => {
     };
 
     const back = () => {
-        navigate("/");
-        navigate("/doctorConsult");
-    };
+        navigate(-1)
+    }
 
     return (
         <>
+            <ToastContainer />
             <div className="doctor-consult container  rounded my-4 shadow-lg p-3 mt-0 bg-body rounded">
                 <div className='row mb-2 alldata pt-2 pb-2 '>
                     <div className='col-4'>
                         <div className="doctor-img">
-                            <img src={state.doctordetail.doctorImage} alt="Doctor Image" className="doctor-images rounded-circle border-3" />
+                            <img src={state.doctorimage} alt="Doctor Image" className="doctor-images rounded-circle border-3" />
                         </div>
                     </div>
                     <div className='col-8 profile-info'>
-                        <h1>{state.doctorName}</h1>
+                        <h1>{state.doctor.doctorName}</h1>
                         <div className='doctor-detail'>
-                            <div><FaUserDoctor /><span style={{ margin: "15px" }}>{state.doctordetail.specialization}</span></div>
-                            <div><MdWorkHistory /><span style={{ margin: "15px" }}>{state.doctordetail.experience} years of experience</span></div>
-                            <div><FaGraduationCap /><span style={{ margin: "15px" }}>{state.doctordetail.qualification}</span></div>
-                            <div><LiaLanguageSolid /><span style={{ margin: "15px" }}>{state.doctordetail.language}</span></div>
+                            <div><FaUserDoctor /><span style={{ margin: "15px" }}>{state.specialization}</span></div>
+                            <div><MdWorkHistory /><span style={{ margin: "15px" }}>{state.experience} years of experience</span></div>
+                            <div><FaGraduationCap /><span style={{ margin: "15px" }}>{state.qualification}</span></div>
+                            <div><LiaLanguageSolid /><span style={{ margin: "15px" }}>{state.language}</span></div>
                             <div className="contact-info">
                                 <div className="address">
                                     <IoLocationOutline />
-                                    <span style={{ margin: "15px" }}>{state.doctordetail.clinicAddress}</span>
+                                    <span style={{ margin: "15px" }}>{state.clinicAddress}</span>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +154,7 @@ const Consult = () => {
                     </form>
                 </div>
             </div>
-          
+
         </>
     );
 };

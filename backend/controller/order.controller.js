@@ -19,8 +19,8 @@ export const placedOrder = async (request, res, next) => {
     console.log(cartResult)
     let cartId = cartResult.dataValues.id;
     let cartItemResult = await CartItems.findAll({ where: { cartId: cartId }, raw: true });
-    
-    
+
+
     let orderItemRes;
     for (let i = 0; i < cartItemResult.length; i++) {
         let productId = cartItemResult[i].productId;
@@ -28,7 +28,7 @@ export const placedOrder = async (request, res, next) => {
         await Order.create({
             OrderDate: currentDate,
             State: request.body.State,
-            FullName:request.body.FullName,
+            FullName: request.body.FullName,
             City: request.body.City,
             Address: request.body.Address,
             Pincode: request.body.Pincode,
@@ -78,7 +78,7 @@ export const Orderbyuser = (request, res, next) => {
 }
 
 export const orderHistory = (request, res, next) => {
-    Order.findOne({ include: [{ model: Product }] })
+    Order.findOne({ include: [orderItem] })
         .then((result) => {
             return res.status(200).json({ data: result })
         })
