@@ -1,16 +1,20 @@
 
 import { useLocation, useNavigate } from "react-router-dom"
-import React, {useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from "axios";
 import { BsCurrencyRupee } from "react-icons/bs";
+import Header from "../Header/Header";
+import Viewcart from "./Viewcart";
 import { ToastContainer, toast } from "react-toastify";
+
 
 let userId = localStorage.getItem("userId")
 
-function Checkout() {
+function Buynow() {
     const navigate = useNavigate();
-    const location = useLocation();
-    const { cartItemList, totalBillAmount } = location.state;
+    const {state} = useLocation();
+    // const location = useLocation();
+    // const { cartItemList, totalBillAmount } = location.state;
 
     const [FullName, setFullName] = useState("");
     const [FullName2, setFullName2] = useState("");
@@ -52,7 +56,7 @@ function Checkout() {
                     currency: "INR",
                     name: "The Great Ayurveda APP",
                     description: "Tutorial of RazorPay",
-                    image: "./images/A2.png",
+                    image: "https://www.pngarts.com/files/1/Gift-PNG-Transparent-Image.png",
                     order_id: order.id,
                     callback_url: "http://localhost:3005/payment/paymentverification",
                     prefill: {
@@ -105,7 +109,6 @@ function Checkout() {
                 console.error("Error during payment checkout:", error);
                 // Handle errors gracefully (e.g., display error message to the user)
             }
-
         }
     }
 
@@ -181,9 +184,11 @@ function Checkout() {
                             <small className="text-danger" style={{ fontSize: "12px" }}>{Pincode2}</small>
                         </div>
                         <div className='col-md-12 mt-3'>
-                            <button className='btn  mt-2 text-white' style={{ background: "var(--green)" }} onClick={() => PlaceOrder(totalBillAmount)}>Proceed to Pay</button>
+                            <button className='btn  mt-2 text-white' style={{ background: "var(--green)" }} onClick={() => PlaceOrder(state.price)}>Proceed to Pay</button>
                         </div>
                     </div>
+                    {/* {(FullName2 === State1 && State1 === City2 && City2 === UserContact2 && UserContact2 === Address2  && Address2 === Pincode2) ? <button onClick={() => PlaceOrder(totalBillAmount)} className='btn  mt-2 text-white' style={{ background: "var(--green)" }}>Proceed to Pay</button> : <button onClick={() => { (FullName === "") ? setFullName2("name is required") : (State === "") ? setState1("State is required") : (City === "") ? setCity2("City is required") : (UserContact === "") ? setContact2("number is required") : (Address === "") ? setAddress2("Address is required") : (Pincode === "") ? setPincode2("pincode is required") : setPincode(" ")}} >Proceed to Pay</button>}                         */}
+
                 </div>
                 <div id='checkout-right' className='border col-md-4'>
                     <div className='text-white rounded mt-2 container d-flex justify-content-center align-items-center p-2' style={{ background: "var(--green)" }}>
@@ -198,18 +203,16 @@ function Checkout() {
                             </tr>
                         </thead>
                         <tbody>
-                            {cartItemList?.map((product, index) => <tr key={index}>
-                                <td>{product["products.title"]}</td>
-                                <td className="text-center" >{product["products.cartItem.quantity"]}</td>
-                                <td className="text-center " style={{ width: "80px" }}><BsCurrencyRupee />{product["products.cartItem.quantity"] * (product["products.price"])}</td>
-                            </tr>)}
+                                <td>{state.title}</td>
+                                <td className="text-center" >1</td>
+                                <td className="text-center " style={{ width: "80px" }}><BsCurrencyRupee /> {state.price}</td>
                         </tbody>
                         <hr />
                         <tfoot>
                             <tr>
                                 <th>Total</th>
                                 <td></td>
-                                <th>{(totalBillAmount).toFixed(2)}</th>
+                                <th>{state.price}</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -219,4 +222,4 @@ function Checkout() {
     </>
 }
 
-export default Checkout;
+export default Buynow;
