@@ -13,6 +13,7 @@ import 'react-horizontal-strip-datepicker/dist/ReactHorizontalDatePicker.css'
 import { MdOutlineNightlight } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx"
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Appointment = () => {
     const { state } = useLocation();
@@ -38,13 +39,12 @@ const Appointment = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [selectedTime, setSelectedTime] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
-
+    const [time,setTime] = useState("")
 
     const handleDateSelection = (date) => {
         setSelectedDate(date);
-        // console.log(date);
     };
-    //   alert(state.doctorId);
+ 
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
@@ -58,21 +58,21 @@ const Appointment = () => {
             email: email,
             age: age,
             gender: selectedOption,
-            appointmentTime: selectedTime,
+            appointmentTime: time,
             appointmentDate: selectedDate,
             doctorId: state.doctorId
         };
 
         try {
-            if (name && phone && email && age && selectedOption && selectedTime && selectedDate) {
+            if (name && phone && email && age && selectedOption && time && selectedDate) {
                 axios.post('http://localhost:3005/doctor/doctorAppointment', formData).then(res => {
                     // console.log('Appointment booked successfully:', res.data);
-                    alert("Appointment booked successfully")
+                    toast.success("Appointment booked successfully")
                 }).catch(err => {
                     console.log("hello", err)
                 });
             } else {
-                alert("Please fill all the fields");
+                toast.error("Please fill all the fields");
             }
 
             setName('');
@@ -85,14 +85,14 @@ const Appointment = () => {
             // Handle errors
             console.error('Error booking appointment:', error);
         }
+        console.log(formData);
 
     };
 
 
-
     return (
         <>
-
+ <ToastContainer />
             <div className="doctor-consult container rounded my-5 shadow-lg p-0 bg-body rounded">
                 <RxCross2 className="closeicon text-white mt-2" onClick={back} />
                 <h1 className="fs-3 text-center text-white p-2" style={{ background: "var(--green)" }}>Schedule Appointment</h1>
@@ -125,14 +125,14 @@ const Appointment = () => {
                 /></div>
 
                 <div className="timing-slots">
-                    <div>
+                    {/* <div>
                         <div className="shift">
                             <span><PiSunHorizon /></span>
                             <span>Morning</span>
                             <br></br>
                         </div>
-                        <div className="time mb-2 mt-2">
-                            <span onClick={() => handleTimeSelection("10:00 AM")} className={selectedTime === "10:00 AM" ? "selected-time" : ""}>10:00 AM</span>
+                        <div >
+                            <span onClick={() => handleTimeSelection("10:00 AM")} className={selectedTime === {state.time} ? "selected-time" : ""}>{state.time}</span>
                             <span onClick={() => handleTimeSelection("10:30 AM")} className={selectedTime === "10:30 AM" ? "selected-time" : ""}>10:30 AM</span>
                             <span onClick={() => handleTimeSelection("11:00 AM")} className={selectedTime === "11:00 AM" ? "selected-time" : ""}>11:00 AM</span>
                             <span onClick={() => handleTimeSelection("11:30 AM")} className={selectedTime === "11:30 AM" ? "selected-time" : ""}>11:30 AM</span>
@@ -142,59 +142,15 @@ const Appointment = () => {
 
 
                         </div>
+                    </div> */}
+                    <div className="time mb-2 mt-2">
+                        {state.time.split("M")?.map((timeValue, index) => (
+                            <span key={index} onClick={()=>setTime(timeValue+"M")} className="time mb-2 mt-2 time-span">
+                               {timeValue}M
+                            </span>
+                        ))}
+
                     </div>
-
-                    <div>
-                        <div className="shift">
-                            <span><FiSun /></span>
-                            <span>Afternoon</span>
-                        </div>
-                        <div className="time mb-2 mt-2">
-                            <div className="time mb-2 mt-2">
-                                <span
-                                    onClick={() => handleTimeSelection("12:00 PM")}
-                                    className={selectedTime === "12:00 PM" ? "selected-time" : ""}
-                                >
-                                    12:00 PM
-                                </span>
-                                <span
-                                    onClick={() => handleTimeSelection("12:30 PM")}
-                                    className={selectedTime === "12:30 PM" ? "selected-time" : ""}
-                                >
-                                    12:30 PM
-                                </span>
-                                <span
-                                    onClick={() => handleTimeSelection("01:00 PM")}
-                                    className={selectedTime === "01:00 PM" ? "selected-time" : ""}
-                                >
-                                    01:00 PM
-                                </span>
-                                <span
-                                    onClick={() => handleTimeSelection("01:30 PM")}
-                                    className={selectedTime === "01:30 PM" ? "selected-time" : ""}
-                                >
-                                    01:30 PM
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div>
-                        <div className="shift">
-                            <span><MdOutlineNightlight /></span>
-                            <span>Evening</span>
-                        </div>
-                        <div className="time mb-2 mt-2">
-                            <span onClick={() => handleTimeSelection("05:00 PM")}>05:00 PM</span>
-                            <span onClick={() => handleTimeSelection("05:30 PM")}>05:30 PM</span>
-                            <span onClick={() => handleTimeSelection("06:00 PM")}>06:00 PM</span>
-                            <span onClick={() => handleTimeSelection("06:30 PM")}>06:30 PM</span>
-                            <span onClick={() => handleTimeSelection("07:00 PM")}>07:00 PM</span>
-                            <span onClick={() => handleTimeSelection("0:30 PM")}>07:30 PM</span>
-                        </div>
-                    </div>
-
                 </div>
                 <form>
                     <div className="form-group">

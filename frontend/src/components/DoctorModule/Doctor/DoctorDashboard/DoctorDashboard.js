@@ -17,9 +17,7 @@ const DoctorDashboard = () => {
             })
     }, []);
 
-
     return <>
-
         <div >
             <div className="container">
                 <div className="row ">
@@ -43,15 +41,18 @@ const DoctorDashboard = () => {
                                             </div>
                                         </div>
 
+
                                     </div>
                                     <div className=" d-flex justify-content-center align-item-center">
                                         <ul className="mt-2 list-group " style={{ listStyle: "none" }}>
                                             <li className="border shadow-lg p-3  bg-body rounded px-5 ">Dashboard</li>
+                                            {/* <Link to="doctorappointment">
                                             <li className="border shadow-lg p-3  bg-body rounded px-5 ">Appointments</li>
-                                            <Link to="patientInformation">
+                                            </Link> */}
+                                            <Link to="/doctorappointment">
                                                 <li className="border shadow-lg p-3  bg-body rounded  px-5">My Patients</li>
                                             </Link>
-                                            <Link to="doctorconsultation">
+                                            <Link to="/doctorconsultation">
                                                 <li className="border shadow-lg p-3  bg-body rounded  px-5">Consult</li>
                                             </Link>
                                             <li className="border shadow-lg p-3  bg-body rounded px-5">Profile Setting</li>
