@@ -40,7 +40,7 @@ app.use('/homeremedy', HomeRemedyRouter);
 app.use('/yoga', YogaRouter);
 app.use('/cart', CartRouter);
 app.use('/order', OrderRouter);
-// app.use("/payment", PaymentRouter);
+// app.use("/payment", PaymentRouter);  
 app.use("/contact", ContactRouter);
 app.use("/consult", ConsultRouter);
 

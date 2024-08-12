@@ -1,33 +1,33 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// const doctorid = localStorage.getItem("doctorId");
-const doctorid = 8;
-
-const DoctorConsultation = () => {
-    const [doctorConsultation, setDoctorConsultation] = useState([]);
+const DoctorAppointment = () => {
+    const doctorId = localStorage.getItem("doctorId");
+    const [doctorAppointment, setDoctorAppointment] = useState([]);
     useEffect(() => {
-        axios.post("http://localhost:3005/consult/doctorConsultData", { doctorid })
+        axios.post("http://localhost:3005/doctor/appointmentList",{doctorid:doctorId})
             .then(response => {
-                setDoctorConsultation(response.data);
-                console.log(response);
+                console.log(response.data.Data);
+                setDoctorAppointment(response.data.Data);
             }).catch(err => {
                 console.log(err);
             })
     }, []);
+
     return <>
         <div>
-            <div className="container  border shadow-lg p-3 mb-5 b
+        <h1 className="d-flex justify-content-center align-items-center">Appointment</h1>
+            <div className="container  border shadow-lg p-3 mt-2 b
             g-body rounded ">
                 <table className="table ">
-                    <thead>
+                    <thead> 
                         <tr>
                             <th> Patient Name</th>
-                            <th>Phone Number</th>
-                            <th>Symptoms</th>
+                            <th>Appointment Date</th>
+                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {doctorConsultation.map((patient, index) => (
+                        {doctorAppointment.map((patient, index) => (
                             <tr key={index}>
                                 <td>{patient.name}</td>
                                 <td>{patient.phone}</td>
@@ -41,10 +41,10 @@ const DoctorConsultation = () => {
             </div>
         </div>
     </>
-
+ 
 
 }
-export default DoctorConsultation;
+export default DoctorAppointment;
 
 
 

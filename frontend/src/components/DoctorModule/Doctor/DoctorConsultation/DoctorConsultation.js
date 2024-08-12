@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 
 const DoctorConsultation = () => {
     const [doctorConsultation, setDoctorConsultation] = useState([]);
+    const doctorId = localStorage.getItem("doctorId");
     useEffect(() => {
-        axios.get("http://localhost:3005/consult/getconsultdata")
+        axios.post("http://localhost:3005/consult/getconsultdata",{doctorid:doctorId})
             .then(response => {
-                setDoctorConsultation(response.data);
-                console.log(response.data);
+                setDoctorConsultation(response.data.Data);
+                console.log(response.data.Data);
             }).catch(err => {
                 console.log(err);
             })

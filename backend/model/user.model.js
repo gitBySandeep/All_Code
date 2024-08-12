@@ -23,7 +23,7 @@ const User = sequelize.define("user", {
         type: String,
         trim: true,
         set: function(password){
-            let saltKey = bcrypt.genSaltSync(10);
+            let saltKey = bcrypt.genSaltSync(10);   
             return bcrypt.hashSync(password,saltKey);
         }
     },

@@ -69,7 +69,7 @@ export const removeFromCart = async (request, response, next) => {
         CartItems.destroy({ where: { cartId: cart.id, productId: request.params.productId * 1 } })
             .then(result => {
                 if (result)
-                    return response.status(200).json({ message: "Item removed", removedItem: result });
+                    return response .status(200).json({ message: "Item removed", removedItem: result });
                 return response.status(401).json({ message: "unautherized request......", });
             }).catch(err => {
                 return response.status(500).json({ error: "Internal Server Error", err });

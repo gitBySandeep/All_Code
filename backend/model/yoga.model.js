@@ -40,4 +40,6 @@ sequelize.sync().then(() => {
     console.log(err);
     console.log("Error in Yoga table");
 })
+
 export default Yoga;
+

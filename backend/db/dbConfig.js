@@ -1,7 +1,6 @@
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize("TestingAyurveda", "root", "root", {
-
     host: 'localhost',
     dialect: 'mysql',
     timezone: '+05:30'
